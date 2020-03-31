@@ -14,4 +14,8 @@
 λ aqueduct serve
 
 
+create database dart
+
+* No projeto, criar o arquivo
+    database.yaml
 
