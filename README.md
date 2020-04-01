@@ -32,5 +32,13 @@ https://marketplace.visualstudio.com/items?itemName=AzMoza.aqueduct-helper
 # criar migrates
 aqueduct db generate
 
+aqueduct db upgrade
+
+
+
+
+# Anotation para as chaves extrangeiras 1-N
+  * ManagedSet<MovimentacaoModel> movimentacoes;
+
 
 

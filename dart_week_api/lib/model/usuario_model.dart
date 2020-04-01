@@ -1,4 +1,5 @@
 import 'package:dart_week_api/dart_week_api.dart';
+import 'package:dart_week_api/model/movimentacao_model.dart';
 
 class UsuarioModel extends ManagedObject<_UsuarioModel>
     implements _UsuarioModel {}
@@ -13,4 +14,6 @@ class _UsuarioModel {
 
   @Column()
   String senha;
+
+  ManagedSet<MovimentacaoModel> movimentacoes;
 }

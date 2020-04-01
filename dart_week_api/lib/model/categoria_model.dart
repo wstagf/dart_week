@@ -1,4 +1,5 @@
 import '../dart_week_api.dart';
+import 'movimentacao_model.dart';
 
 class CategoriaModel extends ManagedObject<_CategoriaModel>
     implements _CategoriaModel {}
@@ -15,4 +16,6 @@ class _CategoriaModel {
 
   @Column()
   TipoCategoria tipoCategoria;
+
+  ManagedSet<MovimentacaoModel> movimentacoes;
 }
