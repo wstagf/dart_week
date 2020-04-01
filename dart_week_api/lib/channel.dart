@@ -1,4 +1,5 @@
 import 'dart_week_api.dart';
+import 'package:dart_week_api/model/usuario_model.dart';
 
 /// This type initializes an application.
 ///
