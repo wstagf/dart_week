@@ -37,8 +37,22 @@ aqueduct db upgrade
 
 
 
-# Anotation para as chaves extrangeiras 1-N
-  * ManagedSet<MovimentacaoModel> movimentacoes;
+# Anotation para as chaves estrangeiras 1-N
+    * casse
+        *  @Relate(#movimentacoes)
+        *  CategoriaModel categoria;
+    * estrangeira
+        * ManagedSet<MovimentacaoModel> movimentacoes;
+
+
+
+# Anotation para as chaves estrangeiras 1-1  // TODO: Conferir
+    * casse
+        *  @Relate(#movimentacoes)
+        *  CategoriaModel categoria;
+    * estrangeira
+        *  @Relate(#movimentacoes)
+        *  CategoriaModel categoria;
 
 
 
