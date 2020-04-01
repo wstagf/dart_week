@@ -32,6 +32,7 @@ https://marketplace.visualstudio.com/items?itemName=AzMoza.aqueduct-helper
 # criar migrates
 aqueduct db generate
 
+# atualizar o banco de dados com as migrates
 aqueduct db upgrade
 
 
@@ -56,3 +57,9 @@ aqueduct db upgrade
 
 
 
+
+
+
+Continuar em 
+
+https://youtu.be/IW0SPje-R8g?t=4574 1:16:14
