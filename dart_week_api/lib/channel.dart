@@ -1,5 +1,7 @@
 import 'dart_week_api.dart';
 import 'package:dart_week_api/model/usuario_model.dart';
+import 'package:dart_week_api/model/categoria_model.dart';
+import 'package:dart_week_api/model/movimentacao_model.dart';
 
 /// This type initializes an application.
 ///
