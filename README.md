@@ -19,3 +19,18 @@ create database dart
 * No projeto, criar o arquivo
     database.yaml
 
+
+plugins
+
+https://marketplace.visualstudio.com/items?itemName=changjoo-park.aqueduct-snippets
+
+https://marketplace.visualstudio.com/items?itemName=AzMoza.aqueduct-helper
+
+
+
+
+# criar migrates
+aqueduct db generate
+
+
+
