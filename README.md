@@ -87,4 +87,4 @@ aqueduct db upgrade
 
 Continuar em 
 
-https://youtu.be/IW0SPje-R8g?t=4574 1:16:14
+https://youtu.be/IW0SPje-R8g?t=6325 1:45:23
