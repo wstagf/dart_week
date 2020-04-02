@@ -56,7 +56,7 @@ aqueduct db upgrade
         *  CategoriaModel categoria;
 
 
-
+* Contruir as rotas
 
 
 
