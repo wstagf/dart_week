@@ -57,8 +57,33 @@ aqueduct db upgrade
 
 
 * Contruir as rotas
+    * chanel.dart
+    <pre>
+    <code>
+    @override
+    Controller get entryPoint {
+        final router = Router();
+        UsuariosRouter.configurar(router, context); // Adicionado esta linha
+        return router;
+    }
+    </code>
+    </pre>
 
+            
 
+    *  usuariosRouter.dart
+        * Implementar método configuar
+    <pre>
+        <code>
+        static void configurar(Router router, ManagedContext context) {
+            router.route('/login').link(() => LoginController(context));
+        }
+        </code>
+    </pre>
+            
+
+* TODO
+    * Falta validar o request
 
 Continuar em 
 
