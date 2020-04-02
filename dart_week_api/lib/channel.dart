@@ -1,3 +1,5 @@
+import 'package:dart_week_api/routers/usuario_router.dart';
+
 import 'dart_week_api.dart';
 import 'package:dart_week_api/model/usuario_model.dart';
 import 'package:dart_week_api/model/categoria_model.dart';
@@ -34,6 +36,7 @@ class DartWeekApiChannel extends ApplicationChannel {
   @override
   Controller get entryPoint {
     final router = Router();
+    UsuariosRouter.configurar(router, context);
     return router;
   }
 
