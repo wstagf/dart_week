@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dart_week_api/controllers/login/dto/login_request.dart';
 import 'package:dart_week_api/repository/usuario_repository.dart';
 import 'package:crypto/crypto.dart';
+import 'package:dart_week_api/utils/jwt_utils.dart';
 import '../dart_week_api.dart';
 
 class UsuarioService {
@@ -20,7 +21,9 @@ class UsuarioService {
     print(senhaCriptografada);
     final usuario = await usuarioRepository.recuperarUsuarioPorLoginESenha(
         login, senhaCriptografada);
-
-    return usuario?.login;
+    if (usuario != null) {
+      return JwtUtils.gerarTokenJWT(usuario);
+    }
+    return null;
   }
 }
