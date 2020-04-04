@@ -6,6 +6,8 @@ import 'package:dart_week_api/model/usuario_model.dart';
 import 'package:dart_week_api/model/categoria_model.dart';
 import 'package:dart_week_api/model/movimentacao_model.dart';
 
+import 'routers/movimentacoes_router.dart';
+
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
@@ -39,6 +41,7 @@ class DartWeekApiChannel extends ApplicationChannel {
     final router = Router();
     UsuariosRouter.configurar(router, context);
     CategoriaRouter.configurar(router, context);
+    MovimentacoesRouter.configurar(router, context);
     return router;
   }
 
