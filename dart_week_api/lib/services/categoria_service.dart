@@ -8,7 +8,7 @@ class CategoriaService {
 
   final CategoriaRepository repository;
 
-  Future<List<CategoriaModel>> buscarCategoriaPorTipo(TipoCategoria tipo) {
-    return repository.buscarCategoriaPorTipo(tipo);
+  Future<List<CategoriaModel>> buscarPorTipo(TipoCategoria tipo) {
+    return repository.buscarPorTipo(tipo);
   }
 }
