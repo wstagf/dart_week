@@ -9,15 +9,20 @@ class CategoriasController extends ResourceController {
   final CategoriaService service;
 
   @Operation.get('tipo')
-  Future<Response> buscarCategoriasPorTipo() {
-    final tipo = request.path.variables['tipo'];
-    final tipoCategoria = TipoCategoria.values
-        .firstWhere((t) => t.toString().split('.').last == tipo);
+  Future<Response> buscarCategoriasPorTipo() async {
+    try {
+      final tipo = request.path.variables['tipo'];
+      final tipoCategoria = TipoCategoria.values
+          .firstWhere((t) => t.toString().split('.').last == tipo);
 
-    return service
-        .buscarCategoriaPorTipo(tipoCategoria)
-        .then((result) =>
-            result.map((c) => {'id': c.id, 'nome': c.nome}).toList())
-        .then((data) => Response.ok(data));
+      return service
+          .buscarCategoriaPorTipo(tipoCategoria)
+          .then((result) =>
+              result.map((c) => {'id': c.id, 'nome': c.nome}).toList())
+          .then((data) => Response.ok(data));
+    } catch (e) {
+      print(e);
+      Response.serverError(body: {'message': e.toString()});
+    }
   }
 }
