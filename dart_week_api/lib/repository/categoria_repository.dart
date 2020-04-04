@@ -12,4 +12,10 @@ class CategoriaRepository {
       ..where((c) => c.tipoCategoria).equalTo(tipoCategoria);
     return query.fetch();
   }
+
+  Future<CategoriaModel> buscarCategoriaPorId(int id) {
+    final query = Query<CategoriaModel>(context)
+      ..where((c) => c.id).equalTo(id);
+    return query.fetchOne();
+  }
 }
