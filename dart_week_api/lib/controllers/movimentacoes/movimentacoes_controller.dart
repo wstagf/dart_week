@@ -32,4 +32,15 @@ class MovimentacoesController extends ResourceController {
           .toList();
     }).then((lista) => Response.ok(lista));
   }
+
+  @Operation.get('totalAnoMes')
+  Future<Response> recuperarTotalMesAno(
+      @Bind.path('totalAnoMes') String mesAno) async {
+    final usuario = request.attachments['usuario'] as UsuarioModel;
+
+    final resultado =
+        await service.buscarTotalMovimentacoesPorTipoCategoria(usuario, mesAno);
+
+    return Response.ok(resultado);
+  }
 }
