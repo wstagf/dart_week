@@ -83,8 +83,8 @@ aqueduct db upgrade
             
 
 * TODO
-    * Falta validar o request
+    
 
 Continuar em 
 
-https://youtu.be/IW0SPje-R8g?t=6325 1:45:23
+https://www.youtube.com/watch?v=BjsjfE7ijHw&feature=youtu.be 0:54:00
