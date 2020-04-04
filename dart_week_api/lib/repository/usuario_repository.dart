@@ -1,4 +1,6 @@
+import 'package:dart_week_api/controllers/usuario/dto/cadastrarUsuarioRequest.dart';
 import 'package:dart_week_api/model/usuario_model.dart';
+import 'package:dart_week_api/utils/criptografia_utils.dart';
 
 import '../dart_week_api.dart';
 
@@ -13,5 +15,11 @@ class UsuarioRepository {
       ..where((usuario) => usuario.login).equalTo(login)
       ..where((usuario) => usuario.senha).equalTo(senha);
     return query.fetchOne();
+  }
+
+  Future<void> salvarUsuario(CadastrarUsuarioRequest request) async {
+    final usuarioSave = UsuarioModel()..read(request.asMap());
+    usuarioSave.senha = CriptografiaUtils.criptografarSenha(request.senha);
+    await context.insertObject(usuarioSave);
   }
 }
