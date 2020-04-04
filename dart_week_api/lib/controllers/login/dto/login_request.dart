@@ -15,7 +15,7 @@ class LoginRequest extends Serializable {
     senha = object['senha'] as String;
   }
 
-  Map<String, String> validade() {
+  Map<String, String> validate() {
     final Map<String, String> validateResult = {};
     if (login == null || login.isEmpty) {
       validateResult['login'] = "Login Obrigatório";
