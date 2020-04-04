@@ -21,7 +21,7 @@ class LoginRequest extends Serializable {
       validateResult['login'] = "Login Obrigatório";
     }
     if (senha == null || senha.isEmpty) {
-      validateResult['senha'] = "Senh Obrigatório";
+      validateResult['senha'] = "Senha Obrigatório";
     }
     return validateResult;
   }
