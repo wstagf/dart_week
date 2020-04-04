@@ -1,13 +1,17 @@
+import 'package:dart_week_api/controllers/movimentacoes/dto/salvarMovimentacaoRequest.dart';
 import 'package:dart_week_api/dart_week_api.dart';
 import 'package:dart_week_api/model/categoria_model.dart';
 import 'package:dart_week_api/model/movimentacao_model.dart';
 import 'package:dart_week_api/model/usuario_model.dart';
+import 'package:dart_week_api/repository/categoria_repository.dart';
 import 'package:intl/intl.dart';
 
 class MovimentacoesRepository {
-  MovimentacoesRepository(this.context);
+  MovimentacoesRepository(this.context)
+      : categoriaRepository = CategoriaRepository(context);
 
   final ManagedContext context;
+  final CategoriaRepository categoriaRepository;
 
   Future<List<MovimentacaoModel>> buscarMovimentacoes(
       UsuarioModel usuarioModel, String anoMes) {
@@ -49,5 +53,18 @@ class MovimentacoesRepository {
         resultado.fold(0.0, (total, m) => total = total + m.valor);
 
     return {'tipo': tipoCategoria.toString(), 'total': total};
+  }
+
+  Future<void> salvarMovimentacao(
+      UsuarioModel usuario, SalvarMovimentacaoRequest request) async {
+    final categoria = await categoriaRepository.buscarPorId(request.categoria);
+    final model = MovimentacaoModel();
+    model.categoria = categoria;
+    model.dataMovimentacao = request.dataMovimentacao;
+    model.descricao = request.descricao;
+    model.usuario = usuario;
+    model.valor = request.valor;
+
+    await context.insertObject(model);
   }
 }
