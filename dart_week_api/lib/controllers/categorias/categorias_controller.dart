@@ -16,7 +16,7 @@ class CategoriasController extends ResourceController {
           .firstWhere((t) => t.toString().split('.').last == tipo);
 
       return service
-          .buscarCategoriaPorTipo(tipoCategoria)
+          .buscarPorTipo(tipoCategoria)
           .then((result) =>
               result.map((c) => {'id': c.id, 'nome': c.nome}).toList())
           .then((data) => Response.ok(data));
