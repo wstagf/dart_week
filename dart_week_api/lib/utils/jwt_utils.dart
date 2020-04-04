@@ -16,4 +16,8 @@ class JwtUtils {
 
     return token;
   }
+
+  static JwtClaim verificarToken(String token) {
+    return verifyJwtHS256Signature(token, _jwtChavePrivada);
+  }
 }
