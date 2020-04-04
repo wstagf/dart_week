@@ -1,5 +1,6 @@
 import 'package:dart_week_api/controllers/login/dto/login_request.dart';
 import 'package:dart_week_api/controllers/usuario/dto/cadastrarUsuarioRequest.dart';
+import 'package:dart_week_api/model/usuario_model.dart';
 import 'package:dart_week_api/repository/usuario_repository.dart';
 import 'package:dart_week_api/utils/criptografia_utils.dart';
 import 'package:dart_week_api/utils/jwt_utils.dart';
@@ -26,5 +27,9 @@ class UsuarioService {
 
   Future<void> salvarUsuario(CadastrarUsuarioRequest request) async {
     await usuarioRepository.salvarUsuario(request);
+  }
+
+  Future<UsuarioModel> buscarPorID(int id) async {
+    return await usuarioRepository.buscarporId(id);
   }
 }
