@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:dart_week_api/controllers/login/dto/login_request.dart';
 import 'package:dart_week_api/repository/usuario_repository.dart';
-import 'package:crypto/crypto.dart';
+import 'package:dart_week_api/utils/criptografia_utils.dart';
 import 'package:dart_week_api/utils/jwt_utils.dart';
 import '../dart_week_api.dart';
 
@@ -15,10 +13,8 @@ class UsuarioService {
   Future<String> login(LoginRequest request) async {
     final String login = request.login;
     final String senha = request.senha;
-
-    final senhaBytes = utf8.encode(senha);
-    final String senhaCriptografada = sha256.convert(senhaBytes).toString();
-    print(senhaCriptografada);
+    final String senhaCriptografada =
+        CriptografiaUtils.criptografarSenha(senha);
     final usuario = await usuarioRepository.recuperarUsuarioPorLoginESenha(
         login, senhaCriptografada);
     if (usuario != null) {
