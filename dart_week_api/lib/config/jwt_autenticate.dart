@@ -40,7 +40,7 @@ class JwtAutentication extends Controller {
 
       final usuario = await service.buscarPorID(userId);
 
-      request.attachments['user'] = usuario;
+      request.attachments['usuario'] = usuario;
 
       return request;
     } on JwtException catch (e) {
