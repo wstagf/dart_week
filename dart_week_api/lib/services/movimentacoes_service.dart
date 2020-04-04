@@ -1,3 +1,4 @@
+import 'package:dart_week_api/controllers/movimentacoes/dto/salvarMovimentacaoRequest.dart';
 import 'package:dart_week_api/dart_week_api.dart';
 import 'package:dart_week_api/model/categoria_model.dart';
 import 'package:dart_week_api/model/movimentacao_model.dart';
@@ -29,5 +30,10 @@ class MovimentacoesService {
       'total': (receitas['total'] ?? 0) + (despesas['total'] ?? 0),
       'saldo': (receitas['total'] ?? 0) + (despesas['total'] * -1 ?? 0)
     };
+  }
+
+  Future<void> salvarMovimentacao(
+      UsuarioModel usuario, SalvarMovimentacaoRequest request) async {
+    await repository.salvarMovimentacao(usuario, request);
   }
 }

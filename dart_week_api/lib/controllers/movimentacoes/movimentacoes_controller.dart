@@ -1,3 +1,4 @@
+import 'package:dart_week_api/controllers/movimentacoes/dto/salvarMovimentacaoRequest.dart';
 import 'package:dart_week_api/dart_week_api.dart';
 import 'package:dart_week_api/model/usuario_model.dart';
 import 'package:dart_week_api/services/movimentacoes_service.dart';
@@ -42,5 +43,24 @@ class MovimentacoesController extends ResourceController {
         await service.buscarTotalMovimentacoesPorTipoCategoria(usuario, mesAno);
 
     return Response.ok(resultado);
+  }
+
+  @Operation.post()
+  Future<Response> salvarMovimentacao(
+      @Bind.body() SalvarMovimentacaoRequest requestSalvar) async {
+    var validate = requestSalvar.validate();
+    if (validate.isNotEmpty) {
+      return Response.badRequest(body: validate);
+    }
+
+    try {
+      final usuario = request.attachments['usuario'] as UsuarioModel;
+      await service.salvarMovimentacao(usuario, requestSalvar);
+
+      return Response.ok({});
+    } catch (e) {
+      return Response.serverError(
+          body: {'message': 'Erro ao salvar movimentação ${e.toString()}'});
+    }
   }
 }
