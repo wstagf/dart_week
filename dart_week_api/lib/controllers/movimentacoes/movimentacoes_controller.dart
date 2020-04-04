@@ -23,7 +23,11 @@ class MovimentacoesController extends ResourceController {
                 'dataMovimentacao': dateFormat.format(m.dataMovimentacao),
                 'descricao': m.descricao,
                 'valor': m.valor,
-                'categoria': {'id': m.categoria.id, 'nome': m.categoria.nome}
+                'categoria': {
+                  'id': m.categoria.id,
+                  'nome': m.categoria.nome,
+                  'tipo': m.categoria.tipoCategoria.toString().split('.')[1]
+                }
               })
           .toList();
     }).then((lista) => Response.ok(lista));
