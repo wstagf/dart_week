@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/components/controlejaTextFormField.dart';
+import 'package:minhaConta/app/components/controleja_buttom.dart';
+import 'package:minhaConta/app/components/controleja_text_form_field.dart';
 import 'package:minhaConta/app/modules/login/login_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';

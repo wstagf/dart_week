@@ -16,7 +16,7 @@ class ControlejaTextFormField extends TextFormField {
           validator: validator,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
-            contentPadding: padding ?? EdgeInsets.fromLTRB(30, 20, 0, 20),
+            contentPadding: padding ?? EdgeInsets.fromLTRB(20, 10, 0, 10),
             labelText: label,
             labelStyle: TextStyle(fontSize: fontSize ?? 20),
             border: OutlineInputBorder(
