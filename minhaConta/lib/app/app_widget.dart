@@ -22,6 +22,7 @@ class AppWidget extends StatelessWidget {
         navigatorKey: Get.key,
         theme: ThemeData(primaryColor: Color(0xFF4B5FCE)),
         initialRoute: '/',
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: Modular.generateRoute,
       ),
     );
