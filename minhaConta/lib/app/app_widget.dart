@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 
 class AppWidget extends StatelessWidget {
@@ -18,6 +19,7 @@ class AppWidget extends StatelessWidget {
         ],
         supportedLocales: [const Locale('pt', 'BR')],
         title: 'Minhas Contas',
+        navigatorKey: Get.key,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
