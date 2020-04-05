@@ -9,6 +9,11 @@
             "program": "dart_week_api/bin/main.dart",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "Flutter",
+            "request": "launch",
+            "type": "dart"
         }
     ]
 }
