@@ -20,7 +20,7 @@ class ControlejaTextFormField extends TextFormField {
             labelText: label,
             labelStyle: TextStyle(fontSize: fontSize ?? 20),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+              borderRadius: BorderRadius.circular(borderRadius ?? 30),
             ),
           ),
         );
