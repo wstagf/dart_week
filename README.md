@@ -89,6 +89,10 @@ aqueduct db upgrade
 
 - flutter packages pub run build_runner build --delete-conflicting-outputs
 
+* gerar modulos 
+
+- slidy g m modules/login -c
+
 * TODO
     
 
