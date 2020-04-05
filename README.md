@@ -94,7 +94,7 @@ aqueduct db upgrade
 - slidy g m modules/login -c
 
 * TODO
-    
+    * layout está quebrando quando o teclado aparece
 
 Continuar em 
 
