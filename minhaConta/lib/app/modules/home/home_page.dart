@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
 
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     ThemeUtils.init(context);
     SizeUtils.init(context);
+    Future.delayed(Duration.zero, () => Get.offAllNamed('/login'));
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
