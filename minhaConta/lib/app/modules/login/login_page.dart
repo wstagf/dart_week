@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:minhaConta/app/components/controlejaTextFormField.dart';
 import 'package:minhaConta/app/modules/login/login_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
@@ -19,7 +20,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: <Widget>[_makerHeader(), SizedBox(height: 30.0)],
+        children: <Widget>[_makerHeader(), SizedBox(height: 30.0), _makeForm()],
       ),
     );
   }
@@ -40,6 +41,29 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _makeForm() {
+    return Form(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Column(
+          children: <Widget>[
+            ControlejaTextFormField(
+              label: "Login",
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ControlejaTextFormField(
+              label: "Senha",
+            )
+          ],
+        ),
       ),
     );
   }
