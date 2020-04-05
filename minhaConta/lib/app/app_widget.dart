@@ -20,9 +20,7 @@ class AppWidget extends StatelessWidget {
         supportedLocales: [const Locale('pt', 'BR')],
         title: 'Minhas Contas',
         navigatorKey: Get.key,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: ThemeData(primaryColor: Color(0xFF4B5FCE)),
         initialRoute: '/',
         onGenerateRoute: Modular.generateRoute,
       ),
