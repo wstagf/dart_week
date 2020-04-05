@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minhaConta/app/utils/size_utils.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    SizeUtils.init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
