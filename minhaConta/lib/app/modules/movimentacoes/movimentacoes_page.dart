@@ -13,6 +13,27 @@ class MovimentacoesPage extends StatefulWidget {
 class _MovimentacoesPageState extends State<MovimentacoesPage> {
   AppBar appBar = AppBar(
     title: Text('Movimentações'),
+    actions: <Widget>[
+      PopupMenuButton<String>(
+        icon: Icon(Icons.add),
+        itemBuilder: (_) {
+          return [
+            PopupMenuItem<String>(
+              value: 'receita',
+              child: Text('Receita'),
+            ),
+            PopupMenuItem<String>(
+              value: 'despesa',
+              child: Text('Despesa'),
+            )
+          ];
+        },
+      ),
+      IconButton(
+        icon: Icon(Icons.exit_to_app),
+        onPressed: () {},
+      )
+    ],
   );
 
   @override
