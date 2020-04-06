@@ -17,6 +17,8 @@ class _PainelSaldoWidgetState
   @override
   Widget build(BuildContext context) {
     return SlidingSheet(
+      elevation: 8,
+      cornerRadius: 30,
       snapSpec: SnapSpec(
         snap: true,
         snappings: [0.1, 0.4],
