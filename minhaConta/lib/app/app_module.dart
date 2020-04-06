@@ -5,6 +5,8 @@ import 'package:minhaConta/app/app_widget.dart';
 import 'package:minhaConta/app/modules/home/home_module.dart';
 import 'package:minhaConta/app/modules/login/login_module.dart';
 
+import 'modules/movimentacoes/movimentacoes_module.dart';
+
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
@@ -15,6 +17,7 @@ class AppModule extends MainModule {
   List<Router> get routers => [
         Router('/', module: HomeModule()),
         Router('/login', module: LoginModule()),
+        Router('/movimentacoes', module: MovimentacoesModule()),
       ];
 
   @override
