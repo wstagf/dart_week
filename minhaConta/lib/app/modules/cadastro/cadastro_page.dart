@@ -45,15 +45,18 @@ class _CadastroPageState
       color: ThemeUtils.primaryColor,
       width: SizeUtils.widthScreen,
       height: (SizeUtils.heigthScreen * 0.4) -
-          (SizeUtils.statusBarHeigth + appBar.preferredSize.height),
+          SizeUtils.statusBarHeigth -
+          appBar.preferredSize.height -
+          SizeUtils.statusBarHeigth,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
-            bottom: 20,
+            bottom: SizeUtils.heigthScreen * 0.05,
             child: Image.asset(
               'assets/images/logo.png',
               width: SizeUtils.widthScreen * 0.5,
+              height: 80,
             ),
           )
         ],

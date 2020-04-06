@@ -44,10 +44,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
-            bottom: 20,
+            bottom: SizeUtils.heigthScreen * 0.05,
             child: Image.asset(
               'assets/images/logo.png',
               width: SizeUtils.widthScreen * 0.5,
+              height: 80,
             ),
           )
         ],
