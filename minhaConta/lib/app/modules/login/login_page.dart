@@ -78,7 +78,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             ),
             ControleJaButtom(
               label: "Entrar",
-              onPressed: () {},
+              onPressed: () => Get.toNamed("movimentacoes"),
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
