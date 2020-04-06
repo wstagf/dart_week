@@ -45,8 +45,7 @@ class _CadastroPageState
       color: ThemeUtils.primaryColor,
       width: SizeUtils.widthScreen,
       height: (SizeUtils.heigthScreen * 0.4) -
-          SizeUtils.statusBarHeigth -
-          appBar.preferredSize.height,
+          (SizeUtils.statusBarHeigth + appBar.preferredSize.height),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
