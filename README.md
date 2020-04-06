@@ -98,6 +98,6 @@ aqueduct db upgrade
 
 Continuar em 
 
-https://youtu.be/AuMeicABhpo?t=4084
+https://youtu.be/AuMeicABhpo?t=6530
 
-Aula 03 - tempo 1:08:04
+Aula 03 - tempo 1:48:04
