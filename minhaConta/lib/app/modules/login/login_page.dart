@@ -20,8 +20,16 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[_makerHeader(), SizedBox(height: 30.0), _makeForm()],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            _makerHeader(),
+            SizedBox(
+              height: SizeUtils.heigthScreen * 0.05,
+            ),
+            _makeForm(),
+          ],
+        ),
       ),
     );
   }
@@ -30,15 +38,15 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
     return Container(
       color: ThemeUtils.primaryColor,
       width: SizeUtils.widthScreen,
-      height: (SizeUtils.heigthScreen * 0.5) - SizeUtils.statusBarHeigth,
+      height: (SizeUtils.heigthScreen * 0.4) - SizeUtils.statusBarHeigth,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
-            bottom: 40,
+            bottom: 20,
             child: Image.asset(
               'assets/images/logo.png',
-              width: SizeUtils.widthScreen * 0.6,
+              width: SizeUtils.widthScreen * 0.5,
             ),
           )
         ],
@@ -58,10 +66,30 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
               label: "Login",
             ),
             SizedBox(
-              height: 30,
+              height: SizeUtils.heigthScreen * 0.05,
             ),
             ControlejaTextFormField(
               label: "Senha",
+            ),
+            SizedBox(
+              height: SizeUtils.heigthScreen * 0.05,
+            ),
+            ControleJaButtom(
+              label: "Entrar",
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: SizeUtils.heigthScreen * 0.05,
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Text(
+                'Cadastre-se',
+                style: TextStyle(
+                  color: ThemeUtils.primaryColor,
+                  fontSize: 20,
+                ),
+              ),
             )
           ],
         ),
