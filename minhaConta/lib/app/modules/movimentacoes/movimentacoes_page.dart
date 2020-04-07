@@ -12,7 +12,11 @@ class MovimentacoesPage extends StatefulWidget {
 
 class _MovimentacoesPageState extends State<MovimentacoesPage> {
   AppBar appBar = AppBar(
-    title: Text('Movimentações'),
+    title: Text(
+      'Movimentações',
+      style: TextStyle(fontSize: 14),
+    ),
+    centerTitle: true,
     actions: <Widget>[
       PopupMenuButton<String>(
         icon: Icon(Icons.add),
