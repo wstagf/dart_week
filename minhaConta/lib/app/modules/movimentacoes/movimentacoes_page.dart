@@ -14,9 +14,8 @@ class _MovimentacoesPageState extends State<MovimentacoesPage> {
   AppBar appBar = AppBar(
     title: Text(
       'Movimentações',
-      style: TextStyle(fontSize: 14),
+      style: TextStyle(fontSize: 16),
     ),
-    centerTitle: true,
     actions: <Widget>[
       PopupMenuButton<String>(
         icon: Icon(Icons.add),
