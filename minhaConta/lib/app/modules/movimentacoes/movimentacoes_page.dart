@@ -63,8 +63,7 @@ class _MovimentacoesPageState extends State<MovimentacoesPage> {
       children: <Widget>[
         Expanded(
           child: Padding(
-            padding:
-                const EdgeInsets.only(bottom: SizeUtils.heigthScreen * 0.1),
+            padding: EdgeInsets.only(bottom: SizeUtils.heigthScreen * 0.1),
             child: ListView.separated(
                 itemBuilder: (_, index) => MovimentacaoItem(),
                 separatorBuilder: (_, index) => Divider(
