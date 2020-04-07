@@ -62,12 +62,16 @@ class _MovimentacoesPageState extends State<MovimentacoesPage> {
     return Column(
       children: <Widget>[
         Expanded(
-          child: ListView.separated(
-              itemBuilder: (_, index) => MovimentacaoItem(),
-              separatorBuilder: (_, index) => Divider(
-                    color: Colors.black,
-                  ),
-              itemCount: 10),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(bottom: SizeUtils.heigthScreen * 0.1),
+            child: ListView.separated(
+                itemBuilder: (_, index) => MovimentacaoItem(),
+                separatorBuilder: (_, index) => Divider(
+                      color: Colors.black,
+                    ),
+                itemCount: 10),
+          ),
         ),
       ],
     );
