@@ -9,13 +9,15 @@ class ControlejaTextFormField extends TextFormField {
       double borderRadius,
       double fontSize,
       EdgeInsets padding,
-      TextEditingController controller})
+      TextEditingController controller,
+      IconData iconData})
       : super(
           controller: controller,
           onChanged: onChanged,
           validator: validator,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
+            prefixIcon: iconData != null ? Icon(iconData) : null,
             contentPadding: padding ?? EdgeInsets.fromLTRB(20, 10, 0, 10),
             labelText: label,
             labelStyle: TextStyle(fontSize: fontSize ?? 20),

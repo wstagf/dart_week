@@ -74,18 +74,21 @@ class _CadastroPageState
           children: <Widget>[
             ControlejaTextFormField(
               label: "Login",
+              iconData: Icons.perm_identity,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
             ),
             ControlejaTextFormField(
               label: "Senha",
+              iconData: Icons.lock,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
             ),
             ControlejaTextFormField(
               label: "Confirma senha",
+              iconData: Icons.lock,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
