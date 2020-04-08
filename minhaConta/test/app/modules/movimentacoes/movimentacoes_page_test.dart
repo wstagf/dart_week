@@ -6,8 +6,7 @@ import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_page.dart';
 
 main() {
   testWidgets('MovimentacoesPage has title', (WidgetTester tester) async {
-    await tester.pumpWidget(
-        buildTestableWidget(MovimentacoesPage(title: 'Movimentacoes')));
+    await tester.pumpWidget(buildTestableWidget(MovimentacoesPage()));
     final titleFinder = find.text('Movimentacoes');
     expect(titleFinder, findsOneWidget);
   });
