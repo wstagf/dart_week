@@ -3,16 +3,18 @@ import 'dart:convert';
 class CategoriaModel {
   int id;
   String nome;
-
+  String tipo;
   CategoriaModel({
     this.id,
     this.nome,
+    this.tipo,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'nome': nome,
+      'tipo': tipo,
     };
   }
 
@@ -22,6 +24,7 @@ class CategoriaModel {
     return CategoriaModel(
       id: map['id'],
       nome: map['nome'],
+      tipo: map['tipo'],
     );
   }
 
@@ -33,9 +36,12 @@ class CategoriaModel {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is CategoriaModel && o.id == id && o.nome == nome;
+    return o is CategoriaModel &&
+        o.id == id &&
+        o.nome == nome &&
+        o.tipo == tipo;
   }
 
   @override
-  int get hashCode => id.hashCode ^ nome.hashCode;
+  int get hashCode => id.hashCode ^ nome.hashCode ^ tipo.hashCode;
 }
