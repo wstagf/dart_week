@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 class CustomDio {
-  var _dio;
+  Dio _dio;
 
   CustomDio() {
     _dio = Dio(_options);
@@ -11,6 +11,25 @@ class CustomDio {
 
   CustomDio.whithAutentication() {
     _dio = Dio(_options);
+    _dio.interceptors.add(InterceptorsWrapper(
+        onRequest: _onRequest, onResponse: _onResponse, onError: _onError));
+  }
+
+  _onRequest(RequestOptions options) {
+    var token = '';
+    options.headers['Auhtorization'] = token;
+  }
+
+  _onError(DioError e) {
+    print('####### Error Log');
+    print(e);
+    print('####### Error Log');
+  }
+
+  _onResponse(Response e) {
+    print('####### Response Log');
+    print(e);
+    print('####### Response Log');
   }
 
   BaseOptions _options = BaseOptions(
