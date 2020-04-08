@@ -6,39 +6,39 @@
     * Backend: Aqueduct
     https://aqueduct.io/
 
+<pre>
+$ brew install dart
+$ pub global activate aqueduct
+$ aqueduct create -t db dart_week_api
+$ cd my_app
+$ aqueduct serve
+</pre>
 
-λ brew install dart
-λ pub global activate aqueduct
-λ aqueduct create -t db dart_week_api
-λ cd my_app
-λ aqueduct serve
+
+# Plugins
+
+    * https://marketplace.visualstudio.com/items?itemName=changjoo-park.aqueduct-snippets
+
+    * https://marketplace.visualstudio.com/items?itemName=AzMoza.aqueduct-helper
+
+    * https://marketplace.visualstudio.com/items?itemName=BendixMa.dart-data-class-generator
 
 
-create database dart
+
+# Create database models in dart
 
 * No projeto, criar o arquivo
     database.yaml
 
 
-plugins
 
-https://marketplace.visualstudio.com/items?itemName=changjoo-park.aqueduct-snippets
-
-https://marketplace.visualstudio.com/items?itemName=AzMoza.aqueduct-helper
-
-
-
-
-# criar migrates
+## criar migrates
 aqueduct db generate
 
-# atualizar o banco de dados com as migrates
+## atualizar o banco de dados com as migrates
 aqueduct db upgrade
 
-
-
-
-# Anotation para as chaves estrangeiras 1-N
+## Anotation para as chaves estrangeiras 1-N
     * casse
         *  @Relate(#movimentacoes)
         *  CategoriaModel categoria;
@@ -47,7 +47,7 @@ aqueduct db upgrade
 
 
 
-# Anotation para as chaves estrangeiras 1-1  // TODO: Conferir
+## Anotation para as chaves estrangeiras 1-1  // TODO: Conferir
     * casse
         *  @Relate(#movimentacoes)
         *  CategoriaModel categoria;
@@ -56,7 +56,7 @@ aqueduct db upgrade
         *  CategoriaModel categoria;
 
 
-* Contruir as rotas
+# Contruir as rotas
     * chanel.dart
     <pre>
     <code>
@@ -82,22 +82,29 @@ aqueduct db upgrade
     </pre>
             
 
+# Build backend to heroku apps
 
-* build codes
+    <pre>heroku create minhascontasback</pre>
+    <pre>heroku config:set DART_SDK_URL=https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.67.0/sdk/dartsdk-linux-x64-release.zip --app=minhascontas</pre>
+    <pre>heroku config:set DART_BUILD_CMD="/app/dart-sdk/bin/pub global activate webdev && /app/dart-sdk/bin/pub global run webdev build" --app=minhascontasback</pre>
+    <pre>webdev build</pre>
 
-- flutter packages pub run build_runner watch --delete-conflicting-outputs
+# Flutter build codes
 
-- flutter packages pub run build_runner build --delete-conflicting-outputs
+* code generator
+    - flutter packages pub run build_runner watch --delete-conflicting-outputs
+
+    - flutter packages pub run build_runner build --delete-conflicting-outputs
 
 * gerar modulos 
 
-- slidy g m modules/login -c
+    - slidy g m modules/login -c
 
-* TODO
+
+# TODO
     * layout está quebrando quando o teclado aparece
 
-Continuar em 
+    * Continuar em 
+    * https://youtu.be/B9qRoH8N_p8?t=4297
+    * Aula 04 - tempo 1:11:37
 
-https://youtu.be/B9qRoH8N_p8?t=4297
-
-Aula 04 - tempo 1:11:37
