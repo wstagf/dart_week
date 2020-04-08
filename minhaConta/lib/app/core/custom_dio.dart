@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 
 class CustomDio {
   Dio _dio;
@@ -24,6 +25,10 @@ class CustomDio {
     print('####### Error Log');
     print(e);
     print('####### Error Log');
+    if (e.response?.statusCode == 403 || e.response?.statusCode == 401) {
+      // TODO: Fazer o logout do usuario
+      Get.offAllNamed('/');
+    }
   }
 
   _onResponse(Response e) {
