@@ -29,7 +29,7 @@ class CustomDio {
     print(e);
     print('####### Error Log');
     if (e.response?.statusCode == 403 || e.response?.statusCode == 401) {
-      // TODO: Fazer o logout do usuario
+      UsuarioRepository().logout();
       Get.offAllNamed('/');
     }
   }
