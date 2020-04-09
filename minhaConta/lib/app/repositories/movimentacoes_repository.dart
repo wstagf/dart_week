@@ -16,4 +16,15 @@ class MovimentacoesRepository {
         .get('/movimentacoes/total/$anoMes')
         .then((res) => MovimentacaoTotalModel.fromMap(res.data));
   }
+
+  Future<void> salvarMovimentacao(int categoria, DateTime dataMovimentacao,
+      String descricao, double valor) {
+    final dio = CustomDio.whithAutentication().instance;
+    return dio.post('/movimentacoes', data: {
+      'categoria': categoria,
+      'dataMovimentacao': dataMovimentacao.toIso8601String(),
+      'descricao': descricao,
+      'valor': valor
+    });
+  }
 }
