@@ -16,6 +16,8 @@ class CustomDio {
         onRequest: _onRequest, onResponse: _onResponse, onError: _onError));
   }
 
+  Dio get instance => _dio;
+
   _onRequest(RequestOptions options) {
     var token = '';
     options.headers['Auhtorization'] = token;
