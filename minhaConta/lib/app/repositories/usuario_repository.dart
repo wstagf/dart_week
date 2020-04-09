@@ -5,8 +5,8 @@ class UsuarioRepository {
   Future<bool> login(String login, String senha) {
     final dio = CustomDio().instance;
 
-    return dio
-        .post('/login', data: {login: login, senha: senha}).then((res) async {
+    return dio.post('/login', data: {'login': login, 'senha': senha}).then(
+        (res) async {
       final String token = res.data['token'];
       if (token != null) {
         SharedPreferences prefs = await SharedPreferences.getInstance();
