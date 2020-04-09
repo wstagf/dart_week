@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:minhaConta/app/core/store_state.dart';
 import 'package:mobx/mobx.dart';
 
