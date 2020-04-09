@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     ThemeUtils.init(context);
     SizeUtils.init(context);
 
-    Future.delayed(Duration.zero, () async {
+    Future.delayed(Duration(seconds: 2), () async {
       if (await Modular.get<UsuarioRepository>().isLogged()) {
         Get.offAllNamed('/movimentacoes');
       } else {
@@ -28,11 +28,9 @@ class _HomePageState extends State<HomePage> {
     });
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[],
+      backgroundColor: ThemeUtils.primaryColor,
+      body: Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }
