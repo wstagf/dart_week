@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/movimentacao_item.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_widget.dart';
+import 'package:minhaConta/app/repositories/usuario_repository.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 
 class MovimentacoesPage extends StatefulWidget {
@@ -34,7 +37,10 @@ class _MovimentacoesPageState extends State<MovimentacoesPage> {
       ),
       IconButton(
         icon: Icon(Icons.exit_to_app),
-        onPressed: () {},
+        onPressed: () => {
+          Modular.get<UsuarioRepository>().logout(),
+          Get.offAllNamed('/'),
+        },
       )
     ],
   );
