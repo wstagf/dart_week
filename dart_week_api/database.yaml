@@ -1,5 +1,5 @@
-username: "postgres"
-password: "postgres"
-host: "localhost"
+username: "mlznrrgxwybxps"
+password: "32369576bc386b1e127eda0fce595b2d5b30a1821eb433b7f5799def90a9bddf"
+host: "ec2-34-204-22-76.compute-1.amazonaws.com"
 port: 5432
-databaseName: "dart"
+databaseName: "d2ucpodi743kg9"
