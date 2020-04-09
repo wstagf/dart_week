@@ -43,6 +43,64 @@ mixin _$LoginController on _LoginBase, Store {
     }, _$senhaAtom, name: '${_$senhaAtom.name}_set');
   }
 
+  final _$_loginFutureAtom = Atom(name: '_LoginBase._loginFuture');
+
+  @override
+  ObservableFuture<bool> get _loginFuture {
+    _$_loginFutureAtom.context.enforceReadPolicy(_$_loginFutureAtom);
+    _$_loginFutureAtom.reportObserved();
+    return super._loginFuture;
+  }
+
+  @override
+  set _loginFuture(ObservableFuture<bool> value) {
+    _$_loginFutureAtom.context.conditionallyRunInAction(() {
+      super._loginFuture = value;
+      _$_loginFutureAtom.reportChanged();
+    }, _$_loginFutureAtom, name: '${_$_loginFutureAtom.name}_set');
+  }
+
+  final _$errorMessageAtom = Atom(name: '_LoginBase.errorMessage');
+
+  @override
+  String get errorMessage {
+    _$errorMessageAtom.context.enforceReadPolicy(_$errorMessageAtom);
+    _$errorMessageAtom.reportObserved();
+    return super.errorMessage;
+  }
+
+  @override
+  set errorMessage(String value) {
+    _$errorMessageAtom.context.conditionallyRunInAction(() {
+      super.errorMessage = value;
+      _$errorMessageAtom.reportChanged();
+    }, _$errorMessageAtom, name: '${_$errorMessageAtom.name}_set');
+  }
+
+  final _$loginSuccessAtom = Atom(name: '_LoginBase.loginSuccess');
+
+  @override
+  bool get loginSuccess {
+    _$loginSuccessAtom.context.enforceReadPolicy(_$loginSuccessAtom);
+    _$loginSuccessAtom.reportObserved();
+    return super.loginSuccess;
+  }
+
+  @override
+  set loginSuccess(bool value) {
+    _$loginSuccessAtom.context.conditionallyRunInAction(() {
+      super.loginSuccess = value;
+      _$loginSuccessAtom.reportChanged();
+    }, _$loginSuccessAtom, name: '${_$loginSuccessAtom.name}_set');
+  }
+
+  final _$requestLoginAsyncAction = AsyncAction('requestLogin');
+
+  @override
+  Future<void> requestLogin() {
+    return _$requestLoginAsyncAction.run(() => super.requestLogin());
+  }
+
   final _$_LoginBaseActionController = ActionController(name: '_LoginBase');
 
   @override
@@ -67,7 +125,8 @@ mixin _$LoginController on _LoginBase, Store {
 
   @override
   String toString() {
-    final string = 'login: ${login.toString()},senha: ${senha.toString()}';
+    final string =
+        'login: ${login.toString()},senha: ${senha.toString()},errorMessage: ${errorMessage.toString()},loginSuccess: ${loginSuccess.toString()}';
     return '{$string}';
   }
 }
