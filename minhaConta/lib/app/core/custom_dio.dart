@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:minhaConta/app/repositories/usuario_repository.dart';
 
 class CustomDio {
   Dio _dio;
@@ -18,8 +19,8 @@ class CustomDio {
 
   Dio get instance => _dio;
 
-  _onRequest(RequestOptions options) {
-    var token = '';
+  _onRequest(RequestOptions options) async {
+    var token = await UsuarioRepository().getToken();
     options.headers['Auhtorization'] = token;
   }
 
