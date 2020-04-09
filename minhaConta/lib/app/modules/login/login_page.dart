@@ -68,6 +68,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             ControlejaTextFormField(
               label: "Login",
               iconData: Icons.perm_identity,
+              onChanged: controller.changeLogin,
+              validator: controller.validateLogin,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
@@ -75,6 +77,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             ControlejaTextFormField(
               label: "Senha",
               iconData: Icons.lock,
+              onChanged: controller.changeSenha,
+              validator: controller.validateSenha,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
