@@ -24,8 +24,12 @@ class UsuarioRepository {
   }
 
   Future<String> getToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('token');
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('token');
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<void> logout() async {
