@@ -3,9 +3,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
 import 'package:minhaConta/app/components/controleja_buttom.dart';
 import 'package:minhaConta/app/components/controleja_text_form_field.dart';
+import 'package:minhaConta/app/core/store_state.dart';
 import 'package:minhaConta/app/modules/login/login_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
+import 'package:mobx/mobx.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -17,6 +19,38 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   // use 'controller' variable to access controller
+
+  List<ReactionDisposer> _disposer;
+
+  @override
+  void initState() {
+    super.initState();
+    _disposer ??= [
+      reaction((_) => controller.state, (StoreState state) {
+        if (state == StoreState.loading) {
+          // chamar um loading
+        } else if (state == StoreState.loaded) {
+          // esconder o loading
+        }
+      }),
+      reaction((_) => controller.loginSuccess, (sucess) {
+        if (sucess != null) {
+          if (sucess) {
+            Get.offAllNamed('/movimentacoes');
+          } else {
+            Get.snackbar('Erro ao realizar login', 'Login ou senha inválidos',
+                backgroundColor: Colors.white);
+          }
+        }
+      }),
+      reaction((_) => controller.errorMessage, (errorMessage) {
+        if (errorMessage.isNotEmpty) {
+          Get.snackbar('Erro ao realizar login', errorMessage,
+              backgroundColor: Colors.white);
+        }
+      }),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

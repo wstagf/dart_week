@@ -39,13 +39,19 @@ abstract class _LoginBase with Store {
   @action
   Future<void> requestLogin() async {
     if (globalKey.currentState.validate()) {
-      errorMessage = '';
-      loginSuccess = null;
-      _loginFuture = ObservableFuture(usuarioRepository.login(login, senha));
-      loginSuccess = await _loginFuture;
+      try {
+        errorMessage = '';
+        loginSuccess = null;
+        _loginFuture = ObservableFuture(usuarioRepository.login(login, senha));
+        loginSuccess = await _loginFuture;
+      } catch (e) {
+        print(e);
+        errorMessage = 'Erro ao realizar login';
+      }
     }
   }
 
+  @computed
   StoreState get state => StoreUtils.statusCheck(_loginFuture);
 
   String validateLogin(String value) {

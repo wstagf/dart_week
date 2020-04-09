@@ -9,6 +9,12 @@ part of 'login_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$LoginController on _LoginBase, Store {
+  Computed<StoreState> _$stateComputed;
+
+  @override
+  StoreState get state =>
+      (_$stateComputed ??= Computed<StoreState>(() => super.state)).value;
+
   final _$loginAtom = Atom(name: '_LoginBase.login');
 
   @override
@@ -126,7 +132,7 @@ mixin _$LoginController on _LoginBase, Store {
   @override
   String toString() {
     final string =
-        'login: ${login.toString()},senha: ${senha.toString()},errorMessage: ${errorMessage.toString()},loginSuccess: ${loginSuccess.toString()}';
+        'login: ${login.toString()},senha: ${senha.toString()},errorMessage: ${errorMessage.toString()},loginSuccess: ${loginSuccess.toString()},state: ${state.toString()}';
     return '{$string}';
   }
 }
