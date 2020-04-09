@@ -58,6 +58,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
 
   Widget _makeForm() {
     return Form(
+      key: controller.globalKey,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 20,
