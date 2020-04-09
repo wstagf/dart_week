@@ -2,6 +2,11 @@ import 'package:minhaConta/app/core/custom_dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UsuarioRepository {
+  Future<bool> isLogged() async {
+    final String token = await this.getToken();
+    return token != null;
+  }
+
   Future<bool> login(String login, String senha) {
     final dio = CustomDio().instance;
 
