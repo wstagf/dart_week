@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minhaConta/app/repositories/usuario_repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'login_controller.g.dart';
@@ -8,6 +9,10 @@ class LoginController = _LoginBase with _$LoginController;
 abstract class _LoginBase with Store {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
 
+  final UsuarioRepository usuarioRepository ;
+
+   _LoginBase(this.usuarioRepository);
+   
   @observable
   String login;
 

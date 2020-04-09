@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:minhaConta/app/app_widget.dart';
 import 'package:minhaConta/app/modules/home/home_module.dart';
 import 'package:minhaConta/app/modules/login/login_module.dart';
+import 'package:minhaConta/app/repositories/usuario_repository.dart';
 
 import 'modules/movimentacoes/movimentacoes_module.dart';
 
@@ -11,6 +12,7 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
+        Bind((i) => UsuarioRepository()),
       ];
 
   @override
