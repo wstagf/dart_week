@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:minhaConta/app/components/controleja_buttom.dart';
 import 'package:minhaConta/app/components/controleja_text_form_field.dart';
 import 'package:minhaConta/app/core/store_state.dart';
+import 'package:minhaConta/app/mixins/loading_mixin.dart';
 import 'package:minhaConta/app/modules/login/login_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
@@ -17,7 +18,8 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends ModularState<LoginPage, LoginController> {
+class _LoginPageState extends ModularState<LoginPage, LoginController>
+    with LoagingMixin {
   // use 'controller' variable to access controller
 
   List<ReactionDisposer> _disposer;
@@ -28,9 +30,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
     _disposer ??= [
       reaction((_) => controller.state, (StoreState state) {
         if (state == StoreState.loading) {
-          // chamar um loading
+          showLoader();
         } else if (state == StoreState.loaded) {
-          // esconder o loading
+          hideLoader();
         }
       }),
       reaction((_) => controller.loginSuccess, (sucess) {
@@ -45,6 +47,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
       }),
       reaction((_) => controller.errorMessage, (errorMessage) {
         if (errorMessage.isNotEmpty) {
+          hideLoader();
+
           Get.snackbar('Erro ao realizar login', errorMessage,
               backgroundColor: Colors.white);
         }
