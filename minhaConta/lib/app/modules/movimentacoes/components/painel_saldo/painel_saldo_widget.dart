@@ -18,27 +18,27 @@ class _PainelSaldoWidgetState
     extends ModularState<PainelSaldoWidget, PainelSaldoController> {
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) {
-        return SlidingSheet(
-          elevation: 8,
-          cornerRadius: 30,
-          snapSpec: SnapSpec(
-            snap: true,
-            snappings: [0.1, 0.4],
-            positioning: SnapPositioning.relativeToAvailableSpace,
+    return SlidingSheet(
+      elevation: 8,
+      cornerRadius: 30,
+      snapSpec: SnapSpec(
+        snap: true,
+        snappings: [0.1, 0.4],
+        positioning: SnapPositioning.relativeToAvailableSpace,
+      ),
+      headerBuilder: (_, state) {
+        return Container(
+          height: 5,
+          width: 60,
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.circular(20),
           ),
-          headerBuilder: (_, state) {
-            return Container(
-              height: 5,
-              width: 60,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(20),
-              ),
-            );
-          },
-          builder: (_, state) {
+        );
+      },
+      builder: (_, state) {
+        return Observer(
+          builder: (_) {
             return _makeContent();
           },
         );
