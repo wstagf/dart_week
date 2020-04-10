@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
+import 'package:mobx/mobx.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class PainelSaldoWidget extends StatefulWidget {
@@ -16,6 +17,18 @@ class PainelSaldoWidget extends StatefulWidget {
 
 class _PainelSaldoWidgetState
     extends ModularState<PainelSaldoWidget, PainelSaldoController> {
+  List<ReactionDisposer> disposers;
+
+  @override
+  void initState() {
+    super.initState();
+    disposers ??= [
+      reaction((_) => controller.data, (_) => controller.buscarTotalDoMes())
+    ];
+
+    controller.buscarTotalDoMes();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SlidingSheet(
@@ -47,7 +60,9 @@ class _PainelSaldoWidgetState
   }
 
   Widget _makeContent() {
-    var arrow_back_back_ios;
+    var numberFormat = NumberFormat('###.00', 'pt_BR');
+    var model = controller.movimentacaoTotalModel;
+
     return Container(
       width: SizeUtils.widthScreen,
       height: (SizeUtils.heigthScreen * 0.4) - widget.appbarHeight,
@@ -86,11 +101,13 @@ class _PainelSaldoWidgetState
                   height: SizeUtils.heigthScreen * 0.01,
                 ),
                 Text(
-                  'R\$ 3.000,00',
+                  'R\$ ${model?.saldo != null ? numberFormat.format(model.saldo) : ' - '}',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green),
+                      color: model?.saldo != null && model.saldo < 0
+                          ? Colors.red
+                          : Colors.green),
                 ),
               ],
             ),
@@ -124,7 +141,7 @@ class _PainelSaldoWidgetState
                               ),
                             ),
                             Text(
-                              'R\$ 200,00',
+                              'R\$ ${model?.receitas?.total != null ? numberFormat.format(model.receitas.total) : ' - '}',
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF4BCE97),
@@ -158,7 +175,7 @@ class _PainelSaldoWidgetState
                               ),
                             ),
                             Text(
-                              'R\$ 200,00',
+                              'R\$ ${model?.despesas?.total != null ? numberFormat.format(model.despesas.total) : ' - '}',
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.red,
