@@ -36,4 +36,12 @@ class UsuarioRepository {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
   }
+
+  Future<void> cadastrarUsuaurio(String login, String senha) async {
+    final dio = CustomDio().instance;
+    return dio.post(
+      '/usuario',
+      data: {'login': login, 'senha': senha},
+    );
+  }
 }

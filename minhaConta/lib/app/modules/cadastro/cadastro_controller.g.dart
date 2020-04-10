@@ -70,7 +70,7 @@ mixin _$CadastroController on _CadastroBase, Store {
       Atom(name: '_CadastroBase._cadastraLoginFuture');
 
   @override
-  ObservableFuture<bool> get _cadastraLoginFuture {
+  ObservableFuture<dynamic> get _cadastraLoginFuture {
     _$_cadastraLoginFutureAtom.context
         .enforceReadPolicy(_$_cadastraLoginFutureAtom);
     _$_cadastraLoginFutureAtom.reportObserved();
@@ -78,7 +78,7 @@ mixin _$CadastroController on _CadastroBase, Store {
   }
 
   @override
-  set _cadastraLoginFuture(ObservableFuture<bool> value) {
+  set _cadastraLoginFuture(ObservableFuture<dynamic> value) {
     _$_cadastraLoginFutureAtom.context.conditionallyRunInAction(() {
       super._cadastraLoginFuture = value;
       _$_cadastraLoginFutureAtom.reportChanged();
@@ -101,23 +101,6 @@ mixin _$CadastroController on _CadastroBase, Store {
       super.errorMessage = value;
       _$errorMessageAtom.reportChanged();
     }, _$errorMessageAtom, name: '${_$errorMessageAtom.name}_set');
-  }
-
-  final _$cadastroSuccessAtom = Atom(name: '_CadastroBase.cadastroSuccess');
-
-  @override
-  bool get cadastroSuccess {
-    _$cadastroSuccessAtom.context.enforceReadPolicy(_$cadastroSuccessAtom);
-    _$cadastroSuccessAtom.reportObserved();
-    return super.cadastroSuccess;
-  }
-
-  @override
-  set cadastroSuccess(bool value) {
-    _$cadastroSuccessAtom.context.conditionallyRunInAction(() {
-      super.cadastroSuccess = value;
-      _$cadastroSuccessAtom.reportChanged();
-    }, _$cadastroSuccessAtom, name: '${_$cadastroSuccessAtom.name}_set');
   }
 
   final _$requestCadastroAsyncAction = AsyncAction('requestCadastro');
@@ -163,7 +146,7 @@ mixin _$CadastroController on _CadastroBase, Store {
   @override
   String toString() {
     final string =
-        'login: ${login.toString()},senha: ${senha.toString()},confirmaSenha: ${confirmaSenha.toString()},errorMessage: ${errorMessage.toString()},cadastroSuccess: ${cadastroSuccess.toString()},state: ${state.toString()}';
+        'login: ${login.toString()},senha: ${senha.toString()},confirmaSenha: ${confirmaSenha.toString()},errorMessage: ${errorMessage.toString()},state: ${state.toString()}';
     return '{$string}';
   }
 }

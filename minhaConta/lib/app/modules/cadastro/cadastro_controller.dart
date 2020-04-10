@@ -35,13 +35,10 @@ abstract class _CadastroBase with Store {
       confirmaSenha = confirmaSenhaValue;
 
   @observable
-  ObservableFuture<bool> _cadastraLoginFuture;
+  ObservableFuture _cadastraLoginFuture;
 
   @observable
   String errorMessage;
-
-  @observable
-  bool cadastroSuccess;
 
   @computed
   StoreState get state => StoreUtils.statusCheck(_cadastraLoginFuture);
@@ -51,14 +48,12 @@ abstract class _CadastroBase with Store {
     if (globalKey.currentState.validate()) {
       try {
         errorMessage = '';
-        cadastroSuccess = null;
-        // fazer post
-        // _cadastraLoginFuture =
-        //     ObservableFuture(usuarioRepository.login(login, senha));
-        cadastroSuccess = await _cadastraLoginFuture;
+        _cadastraLoginFuture =
+            ObservableFuture(usuarioRepository.cadastrarUsuaurio(login, senha));
+        await _cadastraLoginFuture;
       } catch (e) {
         print(e);
-        errorMessage = 'Erro ao realizar login';
+        errorMessage = 'Erro ao realizar cadastro';
       }
     }
   }

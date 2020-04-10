@@ -3,9 +3,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
 import 'package:minhaConta/app/components/controleja_buttom.dart';
 import 'package:minhaConta/app/components/controleja_text_form_field.dart';
+import 'package:minhaConta/app/core/store_state.dart';
+import 'package:minhaConta/app/mixins/loading_mixin.dart';
 import 'package:minhaConta/app/modules/cadastro/cadastro_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
+import 'package:mobx/mobx.dart';
 
 class CadastroPage extends StatefulWidget {
   final String title;
@@ -15,12 +18,39 @@ class CadastroPage extends StatefulWidget {
   _CadastroPageState createState() => _CadastroPageState();
 }
 
-class _CadastroPageState
-    extends ModularState<CadastroPage, CadastroController> {
+class _CadastroPageState extends ModularState<CadastroPage, CadastroController>
+    with LoagingMixin {
   // use 'controller' variable to access controller
   AppBar appBar = AppBar(
     elevation: 0,
   );
+
+  List<ReactionDisposer> _disposer;
+
+  @override
+  void initState() {
+    super.initState();
+    _disposer ??= [
+      reaction((_) => controller.state, (StoreState state) {
+        if (state == StoreState.loading) {
+          showLoader();
+        } else if (state == StoreState.loaded) {
+          hideLoader();
+          Get.snackbar('Sucesso', 'Cadastro realizado com sucesso',
+              backgroundColor: Colors.white);
+          Get.offAllNamed('/login');
+        }
+      }),
+      reaction((_) => controller.errorMessage, (errorMessage) {
+        if (errorMessage.isNotEmpty) {
+          hideLoader();
+
+          Get.snackbar('Erro ao cadastrar usuário', errorMessage,
+              backgroundColor: Colors.white);
+        }
+      }),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
