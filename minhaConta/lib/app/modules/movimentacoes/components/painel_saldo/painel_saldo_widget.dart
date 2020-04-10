@@ -60,7 +60,7 @@ class _PainelSaldoWidgetState
   }
 
   Widget _makeContent() {
-    var numberFormat = NumberFormat('###.00', 'pt_BR');
+    var numberFormat = NumberFormat('##0.00', 'pt_BR');
     var model = controller.movimentacaoTotalModel;
 
     return Container(
@@ -83,7 +83,11 @@ class _PainelSaldoWidgetState
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green),
+                      color: model?.saldo != null && model.saldo < 0
+                          ? Colors.red
+                          : model?.saldo != null && model.saldo == 0
+                              ? Colors.blue
+                              : Colors.green),
                 ),
                 IconButton(
                   onPressed: () => controller.mesProximo(),
@@ -107,7 +111,9 @@ class _PainelSaldoWidgetState
                       fontWeight: FontWeight.bold,
                       color: model?.saldo != null && model.saldo < 0
                           ? Colors.red
-                          : Colors.green),
+                          : model?.saldo != null && model.saldo == 0
+                              ? Colors.blue
+                              : Colors.green),
                 ),
               ],
             ),
