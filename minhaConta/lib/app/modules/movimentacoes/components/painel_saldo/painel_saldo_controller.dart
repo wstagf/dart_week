@@ -10,9 +10,9 @@ part 'painel_saldo_controller.g.dart';
 class PainelSaldoController = _PainelSaldoBase with _$PainelSaldoController;
 
 abstract class _PainelSaldoBase with Store {
-  final MovimentacoesRepository repository;
+  final MovimentacoesRepository movimentacoesRepository;
 
-  _PainelSaldoBase(this.repository);
+  _PainelSaldoBase(this.movimentacoesRepository);
 
   @observable
   DateTime data = DateTime.now();
@@ -46,7 +46,8 @@ abstract class _PainelSaldoBase with Store {
   buscarTotalDoMes() async {
     try {
       errorMessage = '';
-      _totalMovimentacao = MovimentacoesRepository().getTotalMes(anoMes);
+      _totalMovimentacao =
+          ObservableFuture(movimentacoesRepository.getTotalMes(anoMes));
       movimentacaoTotalModel = await _totalMovimentacao;
     } catch (e) {
       errorMessage = 'Erro ao buscar total de movimentações';
