@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
 import 'package:minhaConta/app/models/categoria_model.dart';
 
 class MovimentacaoModel {
@@ -28,11 +29,10 @@ class MovimentacaoModel {
 
   static MovimentacaoModel fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
-
+    var formatDate = DateFormat('y-mm-d');
     return MovimentacaoModel(
       id: map['id'],
-      dataMovimentacao:
-          DateTime.fromMillisecondsSinceEpoch(map['dataMovimentacao']),
+      dataMovimentacao: formatDate.parse(map['dataMovimentacao']),
       descricao: map['descricao'],
       valor: map['valor'],
       categoria: CategoriaModel.fromMap(map['categoria']),
