@@ -66,6 +66,7 @@ class _CadastroPageState
 
   Widget _makeForm() {
     return Form(
+      key: controller.globalKey,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 20,
@@ -75,6 +76,8 @@ class _CadastroPageState
             ControlejaTextFormField(
               label: "Login",
               iconData: Icons.perm_identity,
+              onChanged: controller.changeLogin,
+              validator: controller.validateLogin,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
@@ -82,6 +85,8 @@ class _CadastroPageState
             ControlejaTextFormField(
               label: "Senha",
               iconData: Icons.lock,
+              onChanged: controller.changeSenha,
+              validator: controller.validateSenha,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
@@ -89,13 +94,15 @@ class _CadastroPageState
             ControlejaTextFormField(
               label: "Confirma senha",
               iconData: Icons.lock,
+              onChanged: controller.changeConfirmaSenha,
+              validator: controller.validateConfirmaSenha,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
             ),
             ControleJaButtom(
               label: "Salvar",
-              onPressed: () {},
+              onPressed: controller.requestCadastro,
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
