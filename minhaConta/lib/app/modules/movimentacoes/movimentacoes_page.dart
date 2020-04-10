@@ -70,11 +70,13 @@ class _MovimentacoesPageState extends State<MovimentacoesPage> {
           child: Padding(
             padding: EdgeInsets.only(bottom: SizeUtils.heigthScreen * 0.1),
             child: ListView.separated(
-                itemBuilder: (_, index) => MovimentacaoItem(),
+                itemBuilder: (_, index) => MovimentacaoItem(
+                      item: controller.movimentacoes[index],
+                    ),
                 separatorBuilder: (_, index) => Divider(
                       color: Colors.black,
                     ),
-                itemCount: 10),
+                itemCount: controller.movimentacoes?.length ?? 0),
           ),
         ),
       ],
