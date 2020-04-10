@@ -3,6 +3,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
 import 'package:minhaConta/app/core/store_state.dart';
+import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
+import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_widget.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/movimentacao_item.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_widget.dart';
 import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_controller.dart';
@@ -39,6 +41,10 @@ class _MovimentacoesPageState
     ),
     actions: <Widget>[
       PopupMenuButton<String>(
+        onSelected: (item) async {
+          Modular.get<CadastrarMovimentacaoController>().buscarCategorias(item);
+          _showInsertModal();
+        },
         icon: Icon(Icons.add),
         itemBuilder: (_) {
           return [
@@ -122,5 +128,17 @@ class _MovimentacoesPageState
         ),
       ],
     );
+  }
+
+  static _showInsertModal() {
+    Get.dialog(AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      title: Text('Adicionar '),
+      content: CadastrarMovimentacaoWidget(),
+    ));
   }
 }
