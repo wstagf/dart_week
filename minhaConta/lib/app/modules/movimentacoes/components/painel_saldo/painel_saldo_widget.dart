@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:intl/intl.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
@@ -16,26 +18,30 @@ class _PainelSaldoWidgetState
     extends ModularState<PainelSaldoWidget, PainelSaldoController> {
   @override
   Widget build(BuildContext context) {
-    return SlidingSheet(
-      elevation: 8,
-      cornerRadius: 30,
-      snapSpec: SnapSpec(
-        snap: true,
-        snappings: [0.1, 0.4],
-        positioning: SnapPositioning.relativeToAvailableSpace,
-      ),
-      headerBuilder: (_, state) {
-        return Container(
-          height: 5,
-          width: 60,
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(20),
+    return Observer(
+      builder: (_) {
+        return SlidingSheet(
+          elevation: 8,
+          cornerRadius: 30,
+          snapSpec: SnapSpec(
+            snap: true,
+            snappings: [0.1, 0.4],
+            positioning: SnapPositioning.relativeToAvailableSpace,
           ),
+          headerBuilder: (_, state) {
+            return Container(
+              height: 5,
+              width: 60,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(20),
+              ),
+            );
+          },
+          builder: (_, state) {
+            return _makeContent();
+          },
         );
-      },
-      builder: (_, state) {
-        return _makeContent();
       },
     );
   }
@@ -54,18 +60,18 @@ class _PainelSaldoWidgetState
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => controller.mesAnterior(),
                   icon: Icon(Icons.arrow_back_ios),
                 ),
                 Text(
-                  'Janeiro / 2020',
+                  DateFormat.yMMMM('pt_BR').format(controller.data),
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.green),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => controller.mesProximo(),
                   icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],

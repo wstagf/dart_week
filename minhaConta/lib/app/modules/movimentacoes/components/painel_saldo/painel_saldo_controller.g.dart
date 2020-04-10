@@ -32,6 +32,29 @@ mixin _$PainelSaldoController on _PainelSaldoBase, Store {
     }, _$dataAtom, name: '${_$dataAtom.name}_set');
   }
 
+  final _$_PainelSaldoBaseActionController =
+      ActionController(name: '_PainelSaldoBase');
+
+  @override
+  dynamic mesProximo() {
+    final _$actionInfo = _$_PainelSaldoBaseActionController.startAction();
+    try {
+      return super.mesProximo();
+    } finally {
+      _$_PainelSaldoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic mesAnterior() {
+    final _$actionInfo = _$_PainelSaldoBaseActionController.startAction();
+    try {
+      return super.mesAnterior();
+    } finally {
+      _$_PainelSaldoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     final string = 'data: ${data.toString()},anoMes: ${anoMes.toString()}';

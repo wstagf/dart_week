@@ -11,4 +11,14 @@ abstract class _PainelSaldoBase with Store {
 
   @computed
   String get anoMes => DateFormat('yyyyMM').format(data);
+
+  @action
+  mesProximo() {
+    data = DateTime(data.year, data.month + 1, 1);
+  }
+
+  @action
+  mesAnterior() {
+    data = DateTime(data.year, data.month - 1, 1);
+  }
 }
