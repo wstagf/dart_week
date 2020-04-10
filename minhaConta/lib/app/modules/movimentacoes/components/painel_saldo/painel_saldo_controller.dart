@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:intl/intl.dart';
 
 part 'painel_saldo_controller.g.dart';
 
@@ -6,10 +7,8 @@ class PainelSaldoController = _PainelSaldoBase with _$PainelSaldoController;
 
 abstract class _PainelSaldoBase with Store {
   @observable
-  int value = 0;
+  DateTime data = DateTime.now();
 
-  @action
-  void increment() {
-    value++;
-  }
+  @computed
+  String get anoMes => DateFormat('yyyyMM').format(data);
 }
