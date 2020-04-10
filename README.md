@@ -105,6 +105,6 @@ aqueduct db upgrade
     * layout está quebrando quando o teclado aparece
 
     * Continuar em 
-    * https://youtu.be/B9qRoH8N_p8?t=7970
-    * Aula 04 - tempo 2:12:50
+    * https://youtu.be/B9qRoH8N_p8?t=12266
+    * Aula 04 - tempo 3:24:50
 
