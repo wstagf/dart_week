@@ -8,6 +8,7 @@ import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/pai
 import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_controller.dart';
 import 'package:minhaConta/app/repositories/usuario_repository.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
+import 'package:mobx/mobx.dart';
 
 class MovimentacoesPage extends StatefulWidget {
   const MovimentacoesPage({Key key}) : super(key: key);
@@ -18,10 +19,17 @@ class MovimentacoesPage extends StatefulWidget {
 
 class _MovimentacoesPageState
     extends ModularState<MovimentacoesPage, MovimentacoesController> {
+  List<ReactionDisposer> disposers;
+
   @override
   void initState() {
     super.initState();
     controller.buscarMovimentacoes();
+
+    disposers ??= [
+      reaction((_) => controller.painelSaldoController.data,
+          (_) => controller.buscarMovimentacoes())
+    ];
   }
 
   AppBar appBar = AppBar(
