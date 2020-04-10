@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:minhaConta/app/core/store_state.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:mobx/mobx.dart';
@@ -52,7 +54,25 @@ class _PainelSaldoWidgetState
       builder: (_, state) {
         return Observer(
           builder: (_) {
-            return _makeContent();
+            switch (controller.totalState) {
+              case StoreState.initial:
+              case StoreState.loading:
+                return Container(
+                  height: SizeUtils.heigthScreen,
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+                break;
+              case StoreState.loaded:
+                return _makeContent();
+                break;
+              case StoreState.error:
+                Get.snackbar(
+                    'Erro ao buscar movimentações', controller.errorMessage);
+                return Container();
+            }
           },
         );
       },
