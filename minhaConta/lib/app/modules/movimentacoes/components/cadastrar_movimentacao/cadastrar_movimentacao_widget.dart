@@ -104,6 +104,7 @@ class CadastrarMovimentacaoWidget extends StatelessWidget {
               ],
             ),
           ),
+          ),
         );
       },
     );
