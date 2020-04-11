@@ -182,6 +182,13 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
         .run(() => super.buscarCategorias(tipo));
   }
 
+  final _$salvarMovimentoAsyncAction = AsyncAction('salvarMovimento');
+
+  @override
+  Future salvarMovimento() {
+    return _$salvarMovimentoAsyncAction.run(() => super.salvarMovimento());
+  }
+
   final _$_CadastrarMovimentacaoBaseActionController =
       ActionController(name: '_CadastrarMovimentacaoBase');
 

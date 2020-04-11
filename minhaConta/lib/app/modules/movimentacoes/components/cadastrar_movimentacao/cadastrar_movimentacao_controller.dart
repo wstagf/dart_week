@@ -97,4 +97,25 @@ abstract class _CadastrarMovimentacaoBase with Store {
       print(e);
     }
   }
+
+  @action
+  salvarMovimento() async {
+    try {
+      if (categoria == null) {
+        categoriaValid = false;
+      }
+      if (formKey.currentState.validate()) {
+        if (categoria != null) {
+          // _salvarMovimentacaoFuture = ObservableFuture(
+          //   _movimentacaoRepository.salvarMovimentacao(
+          //       categoria: categoria.id,
+          //       dataMovimentacao: dataInclusao,
+          //       descricao: descricao,
+          //       valor: moneyController.numberValue),
+          // );
+          // await _salvarMovimentacaoFuture;
+        }
+      }
+    } catch (e) {}
+  }
 }
