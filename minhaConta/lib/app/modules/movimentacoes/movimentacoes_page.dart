@@ -157,6 +157,8 @@ class _MovimentacoesPageState
   }
 
   static _showInsertModal() {
+    Modular.get<CadastrarMovimentacaoController>().limparValores();
+
     Get.dialog(AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(

@@ -131,4 +131,12 @@ abstract class _CadastrarMovimentacaoBase with Store {
       print(e);
     }
   }
+
+  @action
+  limparValores() {
+    dataInclusao = DateTime.now();
+    tipoSelecionado = null;
+    categoria = null;
+    moneyController.value = TextEditingValue(text: '0,00');
+  }
 }

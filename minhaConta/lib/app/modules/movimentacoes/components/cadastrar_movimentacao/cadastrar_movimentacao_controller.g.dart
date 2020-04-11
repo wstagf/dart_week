@@ -286,6 +286,17 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
   }
 
   @override
+  dynamic limparValores() {
+    final _$actionInfo =
+        _$_CadastrarMovimentacaoBaseActionController.startAction();
+    try {
+      return super.limparValores();
+    } finally {
+      _$_CadastrarMovimentacaoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     final string =
         'dataInclusao: ${dataInclusao.toString()},errorMessage: ${errorMessage.toString()},tipoSelecionado: ${tipoSelecionado.toString()},categorias: ${categorias.toString()},categoria: ${categoria.toString()},categoriaValid: ${categoriaValid.toString()},descricao: ${descricao.toString()},valor: ${valor.toString()},categoriaStatus: ${categoriaStatus.toString()},salvarMovimentacaoStatus: ${salvarMovimentacaoStatus.toString()}';
