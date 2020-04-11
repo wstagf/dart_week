@@ -78,6 +78,9 @@ abstract class _CadastrarMovimentacaoBase with Store {
     if (value.isEmpty) {
       return 'Valor obrigatório';
     }
+    if (value == '0,00') {
+      return 'Valor não pode ser zero';
+    }
     return null;
   }
 
