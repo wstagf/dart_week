@@ -139,6 +139,17 @@ class _MovimentacoesPageState
       ),
       title: Text('Adicionar '),
       content: CadastrarMovimentacaoWidget(),
+      actions: <Widget>[
+        FlatButton(
+          onPressed: () => Get.back(result: false),
+          child: const Text('Cancelar'),
+        ),
+        FlatButton(
+          onPressed: () =>
+              Modular.get<CadastrarMovimentacaoController>().salvarMovimento(),
+          child: const Text('Salvar'),
+        )
+      ],
     ));
   }
 }

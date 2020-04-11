@@ -119,22 +119,6 @@ class CadastrarMovimentacaoWidget extends StatelessWidget {
                     onChanged: controller.changeValor,
                     validator: controller.validateValor,
                   ),
-                  SizedBox(
-                    height: SizeUtils.heigthScreen * 0.02,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      FlatButton(
-                        onPressed: () => Get.back(),
-                        child: Text('Cancelar'),
-                      ),
-                      Spacer(),
-                      FlatButton(
-                        onPressed: () => controller.salvarMovimento(),
-                        child: Text('Salvar'),
-                      )
-                    ],
-                  )
                 ],
               ),
             ),
