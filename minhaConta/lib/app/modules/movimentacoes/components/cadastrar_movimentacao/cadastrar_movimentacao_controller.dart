@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:minhaConta/app/core/store_state.dart';
 import 'package:minhaConta/app/models/categoria_model.dart';
 import 'package:minhaConta/app/repositories/categorias_repository.dart';
+import 'package:minhaConta/app/repositories/movimentacoes_repository.dart';
 import 'package:minhaConta/app/utils/store_utils.dart';
 import 'package:mobx/mobx.dart';
 
@@ -17,6 +18,8 @@ abstract class _CadastrarMovimentacaoBase with Store {
   final moneyController =
       MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
   CategoriaRepository _categoriaRepository = Modular.get<CategoriaRepository>();
+  MovimentacoesRepository _movimentacaoRepository =
+      Modular.get<MovimentacoesRepository>();
 
   @observable
   DateTime dataInclusao = DateTime.now();
@@ -98,6 +101,13 @@ abstract class _CadastrarMovimentacaoBase with Store {
     }
   }
 
+  @observable
+  ObservableFuture _salvarMovimentacaoFuture;
+
+  @computed
+  StoreState get _salvarMovimentacaoFutureStatus =>
+      StoreUtils.statusCheck(_salvarMovimentacaoFuture);
+
   @action
   salvarMovimento() async {
     try {
@@ -106,14 +116,11 @@ abstract class _CadastrarMovimentacaoBase with Store {
       }
       if (formKey.currentState.validate()) {
         if (categoria != null) {
-          // _salvarMovimentacaoFuture = ObservableFuture(
-          //   _movimentacaoRepository.salvarMovimentacao(
-          //       categoria: categoria.id,
-          //       dataMovimentacao: dataInclusao,
-          //       descricao: descricao,
-          //       valor: moneyController.numberValue),
-          // );
-          // await _salvarMovimentacaoFuture;
+          _salvarMovimentacaoFuture = ObservableFuture(
+            _movimentacaoRepository.salvarMovimentacao(categoria.id,
+                dataInclusao, descricao, moneyController.numberValue),
+          );
+          await _salvarMovimentacaoFuture;
         }
       }
     } catch (e) {}

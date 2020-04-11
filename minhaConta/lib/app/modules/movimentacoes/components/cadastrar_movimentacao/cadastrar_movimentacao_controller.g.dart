@@ -15,6 +15,13 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
   StoreState get categoriaStatus => (_$categoriaStatusComputed ??=
           Computed<StoreState>(() => super.categoriaStatus))
       .value;
+  Computed<StoreState> _$_salvarMovimentacaoFutureStatusComputed;
+
+  @override
+  StoreState get _salvarMovimentacaoFutureStatus =>
+      (_$_salvarMovimentacaoFutureStatusComputed ??=
+              Computed<StoreState>(() => super._salvarMovimentacaoFutureStatus))
+          .value;
 
   final _$dataInclusaoAtom =
       Atom(name: '_CadastrarMovimentacaoBase.dataInclusao');
@@ -172,6 +179,26 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
       super._categoriasFuture = value;
       _$_categoriasFutureAtom.reportChanged();
     }, _$_categoriasFutureAtom, name: '${_$_categoriasFutureAtom.name}_set');
+  }
+
+  final _$_salvarMovimentacaoFutureAtom =
+      Atom(name: '_CadastrarMovimentacaoBase._salvarMovimentacaoFuture');
+
+  @override
+  ObservableFuture<dynamic> get _salvarMovimentacaoFuture {
+    _$_salvarMovimentacaoFutureAtom.context
+        .enforceReadPolicy(_$_salvarMovimentacaoFutureAtom);
+    _$_salvarMovimentacaoFutureAtom.reportObserved();
+    return super._salvarMovimentacaoFuture;
+  }
+
+  @override
+  set _salvarMovimentacaoFuture(ObservableFuture<dynamic> value) {
+    _$_salvarMovimentacaoFutureAtom.context.conditionallyRunInAction(() {
+      super._salvarMovimentacaoFuture = value;
+      _$_salvarMovimentacaoFutureAtom.reportChanged();
+    }, _$_salvarMovimentacaoFutureAtom,
+        name: '${_$_salvarMovimentacaoFutureAtom.name}_set');
   }
 
   final _$buscarCategoriasAsyncAction = AsyncAction('buscarCategorias');
