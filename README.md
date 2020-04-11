@@ -102,9 +102,9 @@ aqueduct db upgrade
 
 
 # TODO
-    * layout está quebrando quando o teclado aparece
-
+    * colocar o backend na nuvem 
+    
     * Continuar em 
-    * https://youtu.be/B9qRoH8N_p8?t=12266
-    * Aula 04 - tempo 3:24:50
+    * https://www.youtube.com/watch?v=Xmf63AGSc44&t=2s
+    * Aula 05 - refactoring
 
