@@ -15,12 +15,12 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
   StoreState get categoriaStatus => (_$categoriaStatusComputed ??=
           Computed<StoreState>(() => super.categoriaStatus))
       .value;
-  Computed<StoreState> _$_salvarMovimentacaoFutureStatusComputed;
+  Computed<StoreState> _$salvarMovimentacaoStatusComputed;
 
   @override
-  StoreState get _salvarMovimentacaoFutureStatus =>
-      (_$_salvarMovimentacaoFutureStatusComputed ??=
-              Computed<StoreState>(() => super._salvarMovimentacaoFutureStatus))
+  StoreState get salvarMovimentacaoStatus =>
+      (_$salvarMovimentacaoStatusComputed ??=
+              Computed<StoreState>(() => super.salvarMovimentacaoStatus))
           .value;
 
   final _$dataInclusaoAtom =
@@ -288,7 +288,7 @@ mixin _$CadastrarMovimentacaoController on _CadastrarMovimentacaoBase, Store {
   @override
   String toString() {
     final string =
-        'dataInclusao: ${dataInclusao.toString()},errorMessage: ${errorMessage.toString()},tipoSelecionado: ${tipoSelecionado.toString()},categorias: ${categorias.toString()},categoria: ${categoria.toString()},categoriaValid: ${categoriaValid.toString()},descricao: ${descricao.toString()},valor: ${valor.toString()},categoriaStatus: ${categoriaStatus.toString()}';
+        'dataInclusao: ${dataInclusao.toString()},errorMessage: ${errorMessage.toString()},tipoSelecionado: ${tipoSelecionado.toString()},categorias: ${categorias.toString()},categoria: ${categoria.toString()},categoriaValid: ${categoriaValid.toString()},descricao: ${descricao.toString()},valor: ${valor.toString()},categoriaStatus: ${categoriaStatus.toString()},salvarMovimentacaoStatus: ${salvarMovimentacaoStatus.toString()}';
     return '{$string}';
   }
 }

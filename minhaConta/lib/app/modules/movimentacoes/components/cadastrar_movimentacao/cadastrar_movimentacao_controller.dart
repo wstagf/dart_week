@@ -108,7 +108,7 @@ abstract class _CadastrarMovimentacaoBase with Store {
   ObservableFuture _salvarMovimentacaoFuture;
 
   @computed
-  StoreState get _salvarMovimentacaoFutureStatus =>
+  StoreState get salvarMovimentacaoStatus =>
       StoreUtils.statusCheck(_salvarMovimentacaoFuture);
 
   @action
@@ -119,6 +119,7 @@ abstract class _CadastrarMovimentacaoBase with Store {
       }
       if (formKey.currentState.validate()) {
         if (categoria != null) {
+          categoriaValid = true;
           _salvarMovimentacaoFuture = ObservableFuture(
             _movimentacaoRepository.salvarMovimentacao(categoria.id,
                 dataInclusao, descricao, moneyController.numberValue),
@@ -126,6 +127,8 @@ abstract class _CadastrarMovimentacaoBase with Store {
           await _salvarMovimentacaoFuture;
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 }
