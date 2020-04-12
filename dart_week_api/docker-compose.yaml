@@ -10,15 +10,11 @@ services:
       - db
     depends_on: 
       - db
-    networks:
-      - my-net
   db: 
     image: postgres
     ports:
       - "5432:5432"
     restart: always
-    networks:
-      - my-net
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -26,7 +22,3 @@ services:
       PGDATA: /tmp
     volumes:
     - ./docker/pgdata:/var/lib/postgresql/data
-networks:
-  my-net:
-    external:
-      name: bridge
