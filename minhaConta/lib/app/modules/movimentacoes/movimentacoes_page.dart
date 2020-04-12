@@ -56,6 +56,22 @@ class _MovimentacoesPageState
             Modular.get<PainelSaldoController>().buscarTotalDoMes();
             break;
         }
+      }),
+      reaction(
+          (_) => Modular.get<CadastrarMovimentacaoController>().categoriaStatus,
+          (categoriaStatus) {
+        switch (categoriaStatus) {
+          case StoreState.loading:
+            showLoader();
+            break;
+          case StoreState.loaded:
+            hideLoader();
+            _showInsertModal();
+            break;
+          case StoreState.error:
+            hideLoader();
+            break;
+        }
       })
     ];
   }
@@ -75,7 +91,6 @@ class _MovimentacoesPageState
       PopupMenuButton<String>(
         onSelected: (item) async {
           Modular.get<CadastrarMovimentacaoController>().buscarCategorias(item);
-          _showInsertModal();
         },
         icon: Icon(Icons.add),
         itemBuilder: (_) {
