@@ -11,18 +11,16 @@ services:
     depends_on: 
       - db
     networks:
-      default:
-          external:
-              name: my-net
+      my-network:
+      driver: bridge
   db: 
     image: postgres
     ports:
       - "5432:5432"
     restart: always
     networks:
-      default:
-          external:
-              name: my-net
+      my-network:
+      driver: bridge
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
