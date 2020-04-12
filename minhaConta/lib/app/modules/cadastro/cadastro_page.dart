@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:minhaConta/app/components/controleja_buttom.dart';
 import 'package:minhaConta/app/components/controleja_text_form_field.dart';
 import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/mixins/loading_mixin.dart';
+import 'package:minhaConta/app/mixins/loader_mixin.dart';
 import 'package:minhaConta/app/modules/cadastro/cadastro_controller.dart';
 import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:minhaConta/app/utils/theme_utils.dart';
@@ -19,7 +19,7 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends ModularState<CadastroPage, CadastroController>
-    with LoagingMixin {
+    with LoaderMixin {
   // use 'controller' variable to access controller
   AppBar appBar = AppBar(
     elevation: 0,

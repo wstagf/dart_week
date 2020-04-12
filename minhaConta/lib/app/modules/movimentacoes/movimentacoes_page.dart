@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
 import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/mixins/loading_mixin.dart';
+import 'package:minhaConta/app/mixins/loader_mixin.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_widget.dart';
 import 'package:minhaConta/app/modules/movimentacoes/components/movimentacao_item.dart';
@@ -23,7 +23,7 @@ class MovimentacoesPage extends StatefulWidget {
 
 class _MovimentacoesPageState
     extends ModularState<MovimentacoesPage, MovimentacoesController>
-    with LoagingMixin {
+    with LoaderMixin {
   List<ReactionDisposer> disposers;
 
   @override
