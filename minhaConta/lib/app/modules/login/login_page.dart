@@ -57,6 +57,12 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _disposer.forEach((d) => d());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
