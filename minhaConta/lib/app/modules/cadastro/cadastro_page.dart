@@ -53,6 +53,12 @@ class _CadastroPageState extends ModularState<CadastroPage, CadastroController>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _disposer.forEach((d) => d());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,

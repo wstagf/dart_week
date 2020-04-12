@@ -79,6 +79,12 @@ class _PainelSaldoWidgetState
     );
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    disposers.forEach((d) => d());
+  }
+
   Widget _makeContent() {
     var numberFormat = NumberFormat('##0.00', 'pt_BR');
     var model = controller.movimentacaoTotalModel;

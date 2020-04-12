@@ -60,6 +60,12 @@ class _MovimentacoesPageState
     ];
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    disposers.forEach((d) => d());
+  }
+
   AppBar appBar = AppBar(
     title: Text(
       'Movimentações',
