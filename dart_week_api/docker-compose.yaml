@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services: 
   dart_week_api:
     build: 
@@ -26,6 +26,7 @@ services:
       PGDATA: /tmp
     volumes:
     - ./docker/pgdata:/var/lib/postgresql/data
-  networks:
-    my-net:
-    driver: bridge
+networks:
+  my-net:
+    external:
+      name: bridge
