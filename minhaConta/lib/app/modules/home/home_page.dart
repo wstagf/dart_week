@@ -14,6 +14,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.verificaLogado();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     ThemeUtils.init(context);
     SizeUtils.init(context);
