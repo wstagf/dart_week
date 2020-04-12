@@ -11,16 +11,14 @@ services:
     depends_on: 
       - db
     networks:
-      my-network:
-      driver: bridge
+      - my-net
   db: 
     image: postgres
     ports:
       - "5432:5432"
     restart: always
     networks:
-      my-network:
-      driver: bridge
+      - my-net
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -28,3 +26,6 @@ services:
       PGDATA: /tmp
     volumes:
     - ./docker/pgdata:/var/lib/postgresql/data
+  networks:
+    my-net:
+    driver: bridge
