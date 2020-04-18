@@ -11,9 +11,5 @@ void main() {
     movimentacoes = MovimentacoesModule.to.get<MovimentacoesController>();
   });
 
-  group('MovimentacoesController Test', () {
-    test("First Test", () {
-      expect(movimentacoes, isInstanceOf<MovimentacoesController>());
-    });
-  });
+  group('MovimentacoesController Test', () {});
 }

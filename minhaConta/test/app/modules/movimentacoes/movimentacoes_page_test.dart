@@ -5,9 +5,9 @@ import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_page.dart';
 
 main() {
-  testWidgets('MovimentacoesPage has title', (WidgetTester tester) async {
-    await tester.pumpWidget(buildTestableWidget(MovimentacoesPage()));
-    final titleFinder = find.text('Movimentacoes');
-    expect(titleFinder, findsOneWidget);
-  });
+  // testWidgets('MovimentacoesPage has title', (WidgetTester tester) async {
+  //   await tester.pumpWidget(buildTestableWidget(MovimentacoesPage()));
+  //   final titleFinder = find.text('Movimentacoes');
+  //   expect(titleFinder, findsOneWidget);
+  // });
 }

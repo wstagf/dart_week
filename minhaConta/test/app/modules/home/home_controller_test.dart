@@ -11,9 +11,5 @@ void main() {
     home = HomeModule.to.get<HomeController>();
   });
 
-  group('HomeController Test', () {
-    test("First Test", () {
-      expect(home, isInstanceOf<HomeController>());
-    });
-  });
+  group('HomeController Test', () {});
 }

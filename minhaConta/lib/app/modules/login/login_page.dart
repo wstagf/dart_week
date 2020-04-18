@@ -134,6 +134,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
             ),
+            Text('H'),
             FlatButton(
               onPressed: () => Get.toNamed("login/cadastro"),
               child: Text(

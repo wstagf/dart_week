@@ -11,9 +11,5 @@ void main() {
     painelsaldo = MovimentacoesModule.to.get<PainelSaldoController>();
   });
 
-  group('PainelSaldoController Test', () {
-    test("First Test", () {
-      expect(painelsaldo, isInstanceOf<PainelSaldoController>());
-    });
-  });
+  group('PainelSaldoController Test', () {});
 }

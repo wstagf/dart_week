@@ -12,10 +12,5 @@ void main() {
         MovimentacoesModule.to.get<CadastrarMovimentacaoController>();
   });
 
-  group('CadastrarMovimentacaoController Test', () {
-    test("First Test", () {
-      expect(cadastrarmovimentacao,
-          isInstanceOf<CadastrarMovimentacaoController>());
-    });
-  });
+  group('CadastrarMovimentacaoController Test', () {});
 }

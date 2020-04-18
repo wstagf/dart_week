@@ -11,9 +11,5 @@ void main() {
     cadastro = CadastroModule.to.get<CadastroController>();
   });
 
-  group('CadastroController Test', () {
-    test("First Test", () {
-      expect(cadastro, isInstanceOf<CadastroController>());
-    });
-  });
+  group('CadastroController Test', () {});
 }
