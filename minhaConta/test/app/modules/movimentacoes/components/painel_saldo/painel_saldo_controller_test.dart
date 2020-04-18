@@ -1,7 +1,5 @@
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-
 import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
 import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_module.dart';
 
@@ -16,12 +14,6 @@ void main() {
   group('PainelSaldoController Test', () {
     test("First Test", () {
       expect(painelsaldo, isInstanceOf<PainelSaldoController>());
-    });
-
-    test("Set Value", () {
-      expect(painelsaldo.value, equals(0));
-      painelsaldo.increment();
-      expect(painelsaldo.value, equals(1));
     });
   });
 }
