@@ -33,5 +33,16 @@ void main() {
     test("Existe campo senha", () {
       expect(controller.senha, null);
     });
+
+    test("Ação Alterar login", () {
+      String textoAntigo_Login = controller.login;
+      controller.changeLogin("novoValor");
+      String textoNovo_Login = controller.login;
+      equals(textoNovo_Login != textoAntigo_Login);
+    });
+
+    test("Ação Armazenar novo valor no login", () {
+      controller.changeLogin("novoValor2");
+    });
   });
 }
