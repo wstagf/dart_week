@@ -45,6 +45,16 @@ void main() {
       equals(controller.login == 'novoValor2');
     });
 
+    test("Ação validar login vazio", () {
+      String result = controller.validateLogin("");
+      equals(result != null);
+    });
+
+    test("Ação validar login com conteudo", () {
+      String result = controller.validateLogin("novoValor");
+      equals(result == null);
+    });
+
     test("Ação Alterar Senha", () {
       String textoAntigo = controller.senha;
       controller.changeLogin("novoValor");
@@ -54,6 +64,16 @@ void main() {
     test("Ação Armazenar novo valor na senha", () {
       controller.changeSenha("novoValor2");
       equals(controller.senha == 'novoValor2');
+    });
+
+    test("Ação validar senha vazia", () {
+      String result = controller.validateSenha("");
+      equals(result != null);
+    });
+
+    test("Ação validar senha com conteudo", () {
+      String result = controller.validateSenha("novoValor");
+      equals(result == null);
     });
   });
 }
