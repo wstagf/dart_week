@@ -35,14 +35,25 @@ void main() {
     });
 
     test("Ação Alterar login", () {
-      String textoAntigo_Login = controller.login;
+      String textoAntigo = controller.login;
       controller.changeLogin("novoValor");
-      String textoNovo_Login = controller.login;
-      equals(textoNovo_Login != textoAntigo_Login);
+      equals(controller.login != textoAntigo);
     });
 
     test("Ação Armazenar novo valor no login", () {
       controller.changeLogin("novoValor2");
+      equals(controller.login == 'novoValor2');
+    });
+
+    test("Ação Alterar Senha", () {
+      String textoAntigo = controller.senha;
+      controller.changeLogin("novoValor");
+      equals(controller.login != textoAntigo);
+    });
+
+    test("Ação Armazenar novo valor na senha", () {
+      controller.changeSenha("novoValor2");
+      equals(controller.senha == 'novoValor2');
     });
   });
 }
