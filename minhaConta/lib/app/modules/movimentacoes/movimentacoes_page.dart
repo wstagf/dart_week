@@ -142,6 +142,7 @@ class _MovimentacoesPageState
                     return _makeContent();
                     break;
                   case StoreState.error:
+                  default:
                     Get.snackbar('Erro ao buscar movimentações',
                         controller.errorMessage);
                     return Container();
