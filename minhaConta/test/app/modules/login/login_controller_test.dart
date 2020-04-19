@@ -75,5 +75,25 @@ void main() {
       String result = controller.validateSenha("novoValor");
       equals(result == null);
     });
+
+    test("Ação executar login com usuario e senha existente", () {
+      //TODO Fazer teste com login correto
+    });
+
+    test("Ação executar login com usuario e senha errados", () {
+      //TODO Fazer teste com login errado
+    });
+
+    test("Ação executar login com usuario e sem senha", () {
+      //TODO Fazer teste com login errado
+    });
+
+    test("Ação executar login sem usuario e com senha", () {
+      //TODO Fazer teste com login errado
+    });
+
+    test("Ação executar login sem usuario e sem senha", () {
+      //TODO Fazer teste com login errado
+    });
   });
 }
