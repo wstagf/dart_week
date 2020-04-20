@@ -30,14 +30,6 @@ void main() {
       expect(controller.login, equals(null));
     });
 
-    test("Existe campo senha", () {
-      expect(controller.senha, equals(null));
-    });
-
-    test("Existe campo confirmaSenha", () {
-      expect(controller.confirmaSenha, equals(null));
-    });
-
     test("Ação Alterar login", () {
       String textoAntigo = controller.login;
       controller.changeLogin("changeLogin");
@@ -49,6 +41,10 @@ void main() {
       expect(controller.login, equals('changeLogin2'));
     });
 
+    test("Existe campo senha", () {
+      expect(controller.senha, equals(null));
+    });
+
     test("Ação Alterar senha", () {
       String textoAntigo = controller.senha;
       controller.changeSenha("changeSenha");
@@ -58,6 +54,10 @@ void main() {
     test("Ação Armazenar novo valor na senha", () {
       controller.changeSenha("changeSenha2");
       expect(controller.senha, equals('changeSenha2'));
+    });
+
+    test("Existe campo confirmaSenha", () {
+      expect(controller.confirmaSenha, equals(null));
     });
 
     test("Ação Alterar confirmaSenha", () {
