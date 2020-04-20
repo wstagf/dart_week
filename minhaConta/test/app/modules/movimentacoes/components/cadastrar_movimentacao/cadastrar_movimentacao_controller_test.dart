@@ -52,16 +52,57 @@ void main() {
       expect(controller.categoria, isNot(equals(categroria)));
     });
 
-    test("Ação Alterar login", () {
+    test("Ação Alterar descricao", () {
+      controller.changeDescricao("changeDescricao56");
       String textoAntigo = controller.descricao;
-      controller.changeDescricao("changeDescricao1");
+      controller.changeDescricao("changeDescricao58");
       expect(controller.descricao, isNot(equals(textoAntigo)));
     });
 
-    test("Ação Alterar login", () {
-      String textoAntigo = controller.descricao;
-      controller.changeValor("changeDescricao1");
-      expect(controller.descricao, isNot(equals(textoAntigo)));
+    test("Ação Alterar descricao", () {
+      //TODO Rever este teste
+    });
+
+    test("Ação Alterar dataInclusao", () {
+      DateTime date = DateTime.now();
+      controller.setDataInclusao(date);
+      expect(controller.dataInclusao, equals(date));
+    });
+
+    test("Ação validar descrição vazio", () {
+      String resultado = controller.validateDescricao("");
+      expect(resultado, isNot(equals(null)));
+    });
+
+    test("Ação validar descrição com conteudo", () {
+      String resultado = controller.validateDescricao("novoValor89");
+      expect(resultado, equals(null));
+    });
+
+    test("Ação validar valor vazio", () {
+      String resultado = controller.validateValor("");
+      expect(resultado, isNot(equals(null)));
+    });
+
+    test("Ação validar valor com conteudo errado", () {
+      String resultado = controller.validateValor("0,00");
+      expect(resultado, isNot(equals(null)));
+    });
+    test("Ação validar valor com conteudo certo", () {
+      String resultado = controller.validateValor("92,00");
+      expect(resultado, equals(null));
+    });
+
+    test("Ação Buscar Categorias", () {
+      //TODO Fazer este teste
+    });
+
+    test("Ação Salvar Movimetnacao", () {
+      //TODO Fazer este teste
+    });
+
+    test("Ação limparValores", () {
+      //TODO Fazer este teste
     });
   });
 }
