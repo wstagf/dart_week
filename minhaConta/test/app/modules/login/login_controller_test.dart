@@ -27,53 +27,53 @@ void main() {
     });
 
     test("Existe campo login", () {
-      expect(controller.login, null);
+      expect(controller.login, equals(null));
     });
 
     test("Existe campo senha", () {
-      expect(controller.senha, null);
+      expect(controller.senha, equals(null));
     });
 
     test("Ação Alterar login", () {
       String textoAntigo = controller.login;
-      controller.changeLogin("novoValor");
-      equals(controller.login != textoAntigo);
+      controller.changeLogin("changeLogin");
+      expect(controller.login, isNot(equals(textoAntigo)));
     });
 
     test("Ação Armazenar novo valor no login", () {
-      controller.changeLogin("novoValor2");
-      equals(controller.login == 'novoValor2');
+      controller.changeLogin("changeLogin2");
+      expect(controller.login, equals('changeLogin2'));
     });
 
-    test("Ação validar login vazio", () {
-      String result = controller.validateLogin("");
-      equals(result != null);
-    });
-
-    test("Ação validar login com conteudo", () {
-      String result = controller.validateLogin("novoValor");
-      equals(result == null);
-    });
-
-    test("Ação Alterar Senha", () {
+    test("Ação Alterar senha", () {
       String textoAntigo = controller.senha;
-      controller.changeLogin("novoValor");
-      equals(controller.login != textoAntigo);
+      controller.changeSenha("changeSenha");
+      expect(controller.senha, isNot(equals(textoAntigo)));
     });
 
     test("Ação Armazenar novo valor na senha", () {
-      controller.changeSenha("novoValor2");
-      equals(controller.senha == 'novoValor2');
+      controller.changeSenha("changeSenha2");
+      expect(controller.senha, equals('changeSenha2'));
+    });
+
+    test("Ação validar login vazio", () {
+      String resultado = controller.validateLogin("");
+      expect(resultado, isNot(equals(null)));
+    });
+
+    test("Ação validar login com conteudo", () {
+      String resultado = controller.validateLogin("novoValor");
+      expect(resultado, equals(null));
     });
 
     test("Ação validar senha vazia", () {
-      String result = controller.validateSenha("");
-      equals(result != null);
+      String resultado = controller.validateSenha("");
+      expect(resultado, isNot(equals(null)));
     });
 
     test("Ação validar senha com conteudo", () {
-      String result = controller.validateSenha("novoValor");
-      equals(result == null);
+      String resultado = controller.validateSenha("novoValor");
+      expect(resultado, equals(null));
     });
 
     test("Ação executar login com usuario e senha existente", () {
