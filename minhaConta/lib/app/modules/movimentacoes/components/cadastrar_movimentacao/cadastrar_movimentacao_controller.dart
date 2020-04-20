@@ -58,6 +58,7 @@ abstract class _CadastrarMovimentacaoBase with Store {
   @action
   void changeValor(String valorValue) {
     valor = 0;
+    //TODO rever esta funcao
   }
 
   @action
