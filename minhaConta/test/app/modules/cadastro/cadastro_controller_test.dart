@@ -21,7 +21,7 @@ void main() {
     controller = CadastroModule.to.get<CadastroController>();
   });
 
-  group('LoginController Test', () {
+  group('Cadastro Controller Test', () {
     test("Instanciou o controller", () {
       expect(controller, isInstanceOf<CadastroController>());
     });
