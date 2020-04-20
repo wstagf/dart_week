@@ -27,37 +27,48 @@ void main() {
     });
 
     test("Existe campo login", () {
-      expect(controller.login, null);
+      expect(controller.login, equals(null));
     });
 
     test("Existe campo senha", () {
-      expect(controller.senha, null);
+      expect(controller.senha, equals(null));
     });
 
     test("Existe campo confirmaSenha", () {
-      expect(controller.confirmaSenha, null);
+      expect(controller.confirmaSenha, equals(null));
     });
 
     test("Ação Alterar login", () {
       String textoAntigo = controller.login;
-      controller.changeLogin("novoValor");
-      equals(controller.login != textoAntigo);
+      controller.changeLogin("changeLogin");
+      expect(controller.login, isNot(equals(textoAntigo)));
     });
 
     test("Ação Armazenar novo valor no login", () {
-      controller.changeLogin("novoValor2");
-      equals(controller.login == 'novoValor2');
+      controller.changeLogin("changeLogin2");
+      expect(controller.login, equals('changeLogin2'));
     });
 
     test("Ação Alterar senha", () {
       String textoAntigo = controller.senha;
-      controller.changeLogin("novoValor");
+      controller.changeSenha("changeSenha");
       equals(controller.senha != textoAntigo);
     });
 
     test("Ação Armazenar novo valor na senha", () {
-      controller.changeLogin("novoValor2");
-      equals(controller.senha == 'novoValor2');
+      controller.changeSenha("changeSenha2");
+      expect(controller.senha, equals('changeSenha2'));
+    });
+
+    test("Ação Alterar confirmaSenha", () {
+      String textoAntigo = controller.confirmaSenha;
+      controller.changeConfirmaSenha("changeConfirmaSenha");
+      equals(controller.confirmaSenha != textoAntigo);
+    });
+
+    test("Ação Armazenar novo valor no confirmaSenha", () {
+      controller.changeConfirmaSenha("changeConfirmaSenha2");
+      expect(controller.confirmaSenha, equals('changeConfirmaSenha2'));
     });
   });
 }
