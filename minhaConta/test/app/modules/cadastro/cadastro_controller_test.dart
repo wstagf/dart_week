@@ -99,7 +99,7 @@ void main() {
     test("Ação validar validateConfirmaSenha com igual a senha", () {
       controller.changeSenha("changeSenhaTeste1");
       String resultado = controller.validateConfirmaSenha("changeSenhaTeste1");
-      expect(resultado, isNot(equals(null)));
+      expect(resultado, equals(null));
     });
 
     test("Ação validar validateConfirmaSenha com confirmar diferente da senha",
