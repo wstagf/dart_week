@@ -3,14 +3,18 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Login Page', () {
-    final loginInputFinder = find.byValueKey('login_text_input');
-    final senhaInputFinder = find.byValueKey('senha_text_input');
-    final loginButtonFinder = find.byValueKey('login_button');
-    final cadastreButtonFinder = find.byValueKey('cadastre_button');
+  final loginInputFinder = find.byValueKey('login_text_input');
+  final senhaInputFinder = find.byValueKey('senha_text_input');
+  final loginButtonFinder = find.byValueKey('login_button');
+  final cadastreButtonFinder = find.byValueKey('cadastre_button');
 
-    FlutterDriver driver;
+  FlutterDriver driver;
 
+  Future<void> delay([int milliseconds = 250]) async {
+    await Future<void>.delayed(Duration(milliseconds: milliseconds));
+  }
+
+  group('Efetuar Login', () {
     // Connect to the Flutter driver before running any tests.
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -23,16 +27,22 @@ void main() {
       }
     });
 
-    test('Efetuar Login', () async {
+    test('Preencher Login', () async {
       await driver.tap(loginInputFinder);
       await driver.enterText('thiago');
-      await driver.waitFor(find.text('thiago')); // verify text appears on UI
+      await driver.waitFor(find.text('thiago'));
+    });
 
+    test('Preencher senha', () async {
       await driver.tap(senhaInputFinder);
       await driver.enterText('123456');
-      await driver.waitFor(find.text('123456')); // verify text appears on UI
+      await driver.waitFor(find.text('123456'));
+    });
 
-      // await driver.waitFor(find.text('World!'));  // verify new text appears
+    test('Clicar no botao Login', () async {
+      await driver.tap(loginButtonFinder);
+      final cadastreButtonFinder = find.byValueKey('movimentacoes_title');
+      await driver.waitFor(cadastreButtonFinder, timeout: Duration(seconds: 5));
     });
     // test('Text H', () async {
     //   // Use the `driver.getText` method to verify the counter starts at 0.

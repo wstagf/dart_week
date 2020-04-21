@@ -85,6 +85,7 @@ class _MovimentacoesPageState
   AppBar appBar = AppBar(
     title: Text(
       'Movimentações',
+      key: Key('movimentacoes_title'),
       style: TextStyle(fontSize: 16),
     ),
     actions: <Widget>[
