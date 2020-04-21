@@ -41,7 +41,7 @@ class CustomDio {
   }
 
   BaseOptions _options = BaseOptions(
-    baseUrl: Platform.isIOS ? 'http://localhost' : 'http://192.168.1.9',
+    baseUrl: Platform.isIOS ? 'http://localhost' : 'http://192.168.1.2',
     connectTimeout: 30000,
     receiveTimeout: 30000,
   );
