@@ -40,6 +40,7 @@ dev_dependencies:
   mockito: ^4.1.1
   mobx_codegen: ^1.0.3
   build_runner: ^1.8.1
+  ozzie: ^2.2.3
   flutter_driver:
     sdk: flutter
   test: any
