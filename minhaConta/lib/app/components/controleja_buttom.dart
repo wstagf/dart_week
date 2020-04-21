@@ -6,8 +6,10 @@ class ControleJaButtom extends RawMaterialButton {
       {@required VoidCallback onPressed,
       @required String label,
       Color primaryColor,
+      Key key,
       Color highlightColor})
       : super(
+          key: key != null ? key : null,
           onPressed: onPressed,
           child: Container(
             height: 50,

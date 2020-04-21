@@ -91,6 +91,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
             bottom: SizeUtils.heigthScreen * 0.05,
             child: Image.asset(
               'assets/images/logo.png',
+              key: Key('image_logo'),
               width: SizeUtils.widthScreen * 0.5,
               height: 80,
             ),
@@ -110,6 +111,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
         child: Column(
           children: <Widget>[
             ControlejaTextFormField(
+              key: Key('login_text_input'),
               label: "Login",
               iconData: Icons.perm_identity,
               onChanged: controller.changeLogin,
@@ -119,6 +121,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
               height: SizeUtils.heigthScreen * 0.05,
             ),
             ControlejaTextFormField(
+              key: Key('senha_text_input'),
               label: "Senha",
               iconData: Icons.lock,
               onChanged: controller.changeSenha,
@@ -129,16 +132,17 @@ class _LoginPageState extends ModularState<LoginPage, LoginController>
             ),
             ControleJaButtom(
               label: "Entrar",
+              key: Key('login_button'),
               onPressed: () => controller.requestLogin(),
             ),
             SizedBox(
               height: SizeUtils.heigthScreen * 0.05,
             ),
-            Text('H'),
             FlatButton(
               onPressed: () => Get.toNamed("login/cadastro"),
               child: Text(
                 'Cadastre-se',
+                key: Key('cadastre_button'),
                 style: TextStyle(
                   color: ThemeUtils.primaryColor,
                   fontSize: 20,

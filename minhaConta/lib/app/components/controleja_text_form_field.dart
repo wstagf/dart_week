@@ -10,8 +10,10 @@ class ControlejaTextFormField extends TextFormField {
       double fontSize,
       EdgeInsets padding,
       TextEditingController controller,
-      IconData iconData})
+      IconData iconData,
+      Key key})
       : super(
+          key: key != null ? key : null,
           controller: controller,
           onChanged: onChanged,
           validator: validator,
