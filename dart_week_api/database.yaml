@@ -1,5 +1,5 @@
-username: postgres
-password: postgres
-host: db
+username: "postgres"
+password: "postgres"
+host: "localhost"
 port: 5432
-databaseName: dart
+databaseName: "dart"
