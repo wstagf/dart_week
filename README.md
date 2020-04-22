@@ -38,6 +38,8 @@ aqueduct db generate
 ## atualizar o banco de dados com as migrates
 aqueduct db upgrade
 
+aqueduct db upgrade --connect postgres://postgres:postgres@192.168.1.8:5432/dart
+
 ## Anotation para as chaves estrangeiras 1-N
     * casse
         *  @Relate(#movimentacoes)
