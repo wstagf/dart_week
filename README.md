@@ -102,6 +102,19 @@ aqueduct db upgrade --connect postgres://postgres:postgres@192.168.1.8:5432/dart
 
     - slidy g m modules/login -c
 
+# Tests
+
+* e2e
+    
+    - flutter drive --target=test_driver/app.dart
+
+* unit
+    
+    - flutter test
+
+* widgets
+    
+    FAZER 
 
 # TODO
     * colocar o backend na nuvem 
