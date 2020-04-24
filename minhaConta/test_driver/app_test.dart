@@ -16,67 +16,56 @@ void main() {
     await Future<void>.delayed(Duration(milliseconds: milliseconds));
   }
 
-    // Connect to the Flutter driver before running any tests.
-    setUpAll(() async {
-      driver = await FlutterDriver.connect();
-      ozzie = Ozzie.initWith(driver, groupName: 'flutter');
-    });
+  // Connect to the Flutter driver before running any tests.
+  setUpAll(() async {
+    driver = await FlutterDriver.connect();
+    ozzie = Ozzie.initWith(driver, groupName: 'flutter');
+  });
 
-    // Close the connection to the driver after the tests have completed.
-    tearDownAll(() async {
-      if (driver != null) driver.close();
-      ozzie.generateHtmlReport();
-    });
+  // Close the connection to the driver after the tests have completed.
+  tearDownAll(() async {
+    if (driver != null) driver.close();
+    ozzie.generateHtmlReport();
+  });
 
-    test('initial counter is 0', () async {
-      await ozzie.profilePerformance('counter0', () async {
-        await driver.tap(loginInputFinder);
-        delay(1000);
-        await ozzie.takeScreenshot('EfetuarLogin001');
-
-        // await driver.waitFor(find.text('0'));
-        // await ozzie.takeScreenshot('initial_counter_is_0');
-      });
-    });
-
-    // test('Teste print Login', () async {
-    //   await ozzie.profilePerformance('EfetuarLogin0', () async {
-    //     await driver.tap(loginInputFinder);
-    //     await ozzie.takeScreenshot('EfetuarLogin001');
-    //     await driver.enterText('thiago');
-    //     await ozzie.takeScreenshot('EfetuarLogin002');
-    //     await driver.waitFor(find.text('thiago'));
-    //   });
-    // });
-
-    test('Preencher Login', () async {
+  test('Efetuar login Correto', () async {
+    await ozzie.profilePerformance('efetuar_login_correto', () async {
       await driver.tap(loginInputFinder);
       await driver.enterText('thiago');
-      await driver.waitFor(find.text('thiago'));
-    });
-
-    test('Preencher senha', () async {
+      await ozzie.takeScreenshot('efetuar_login');
       await driver.tap(senhaInputFinder);
       await driver.enterText('123456');
-      await driver.waitFor(find.text('123456'));
-    });
-
-    test('Clicar no botao Login', () async {
+      await ozzie.takeScreenshot('efetuar_login');
       await driver.tap(loginButtonFinder);
       final cadastreButtonFinder = find.byValueKey('movimentacoes_title');
-      await driver.waitFor(cadastreButtonFinder, timeout: Duration(seconds: 5));
+      await driver.waitFor(cadastreButtonFinder,
+          timeout: Duration(seconds: 10));
+      await ozzie.takeScreenshot('efetuar_login');
     });
-    // test('Text H', () async {
-    //   // Use the `driver.getText` method to verify the counter starts at 0.
-    //   expect(await driver.getText(counterTextFinder), "0");
-    // });
+  });
 
-    // test('increments the counter', () async {
-    //   // First, tap the button.
-    //   await driver.tap(buttonFinder);
+  // test('Preencher senha', () async {
+  //   await driver.tap(senhaInputFinder);
+  //   await driver.enterText('123456');
+  //   await driver.waitFor(find.text('123456'));
+  // });
 
-    //   // Then, verify the counter text is incremented by 1.
-    //   expect(await driver.getText(counterTextFinder), "1");
-    // });
-  
+  // test('Clicar no botao Login', () async {
+  //   await driver.tap(loginButtonFinder);
+  //   final cadastreButtonFinder = find.byValueKey('movimentacoes_title');
+  //   await driver.waitFor(cadastreButtonFinder, timeout: Duration(seconds: 5));
+  // });
+
+  // test('Text H', () async {
+  //   // Use the `driver.getText` method to verify the counter starts at 0.
+  //   expect(await driver.getText(counterTextFinder), "0");
+  // });
+
+  // test('increments the counter', () async {
+  //   // First, tap the button.
+  //   await driver.tap(buttonFinder);
+
+  //   // Then, verify the counter text is incremented by 1.
+  //   expect(await driver.getText(counterTextFinder), "1");
+  // });
 }
