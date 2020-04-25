@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/modules/home/home_controller.dart';
-import 'package:minhaConta/app/utils/size_utils.dart';
-import 'package:minhaConta/app/utils/theme_utils.dart';
+
+import '../../utils/size_utils.dart';
+import '../../utils/theme_utils.dart';
+import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

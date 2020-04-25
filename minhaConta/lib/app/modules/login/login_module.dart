@@ -1,8 +1,9 @@
-import 'package:minhaConta/app/modules/cadastro/cadastro_module.dart';
-import 'package:minhaConta/app/modules/login/login_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/modules/login/login_page.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
+
+import '../../repositories/usuario_repository.dart';
+import '../cadastro/cadastro_module.dart';
+import 'login_controller.dart';
+import 'login_page.dart';
 
 class LoginModule extends ChildModule {
   @override

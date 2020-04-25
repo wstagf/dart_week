@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
-import 'package:minhaConta/app/utils/store_utils.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/store_state.dart';
+import '../../repositories/usuario_repository.dart';
+import '../../utils/store_utils.dart';
 
 part 'cadastro_controller.g.dart';
 

@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/mixins/loader_mixin.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_widget.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/movimentacao_item.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_widget.dart';
-import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_controller.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
-import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/store_state.dart';
+import '../../mixins/loader_mixin.dart';
+import '../../repositories/usuario_repository.dart';
+import '../../utils/size_utils.dart';
+import 'components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
+import 'components/cadastrar_movimentacao/cadastrar_movimentacao_widget.dart';
+import 'components/movimentacao_item.dart';
+import 'components/painel_saldo/painel_saldo_controller.dart';
+import 'components/painel_saldo/painel_saldo_widget.dart';
+import 'movimentacoes_controller.dart';
 
 class MovimentacoesPage extends StatefulWidget {
   const MovimentacoesPage({Key key}) : super(key: key);

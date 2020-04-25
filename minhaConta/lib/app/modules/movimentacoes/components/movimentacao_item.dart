@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:minhaConta/app/models/movimentacao_model.dart';
+import '../../../models/movimentacao_model.dart';
 
 class MovimentacaoItem extends StatelessWidget {
   final MovimentacaoModel item;

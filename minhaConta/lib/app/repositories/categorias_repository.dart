@@ -1,5 +1,5 @@
-import 'package:minhaConta/app/core/custom_dio.dart';
-import 'package:minhaConta/app/models/categoria_model.dart';
+import '../core/custom_dio.dart';
+import '../models/categoria_model.dart';
 
 class CategoriaRepository {
   Future<List<CategoriaModel>> getCategorias(String tipo) {

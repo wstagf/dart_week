@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/models/categoria_model.dart';
-import 'package:minhaConta/app/repositories/categorias_repository.dart';
-import 'package:minhaConta/app/repositories/movimentacoes_repository.dart';
-import 'package:minhaConta/app/utils/store_utils.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../../core/store_state.dart';
+import '../../../../models/categoria_model.dart';
+import '../../../../repositories/categorias_repository.dart';
+import '../../../../repositories/movimentacoes_repository.dart';
+import '../../../../utils/store_utils.dart';
 
 part 'cadastrar_movimentacao_controller.g.dart';
 

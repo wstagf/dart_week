@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minhaConta/app/utils/theme_utils.dart';
+import '../utils/theme_utils.dart';
 
 class ControleJaButtom extends RawMaterialButton {
   ControleJaButtom(

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
-import 'package:minhaConta/app/components/controleja_buttom.dart';
-import 'package:minhaConta/app/components/controleja_text_form_field.dart';
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/mixins/loader_mixin.dart';
-import 'package:minhaConta/app/modules/cadastro/cadastro_controller.dart';
-import 'package:minhaConta/app/utils/size_utils.dart';
-import 'package:minhaConta/app/utils/theme_utils.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../components/controleja_buttom.dart';
+import '../../components/controleja_text_form_field.dart';
+import '../../core/store_state.dart';
+import '../../mixins/loader_mixin.dart';
+import '../../utils/size_utils.dart';
+import '../../utils/theme_utils.dart';
+import 'cadastro_controller.dart';
 
 class CadastroPage extends StatefulWidget {
   final String title;

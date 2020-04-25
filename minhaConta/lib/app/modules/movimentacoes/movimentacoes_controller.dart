@@ -1,9 +1,10 @@
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/models/movimentacao_model.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
-import 'package:minhaConta/app/repositories/movimentacoes_repository.dart';
-import 'package:minhaConta/app/utils/store_utils.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/store_state.dart';
+import '../../models/movimentacao_model.dart';
+import '../../repositories/movimentacoes_repository.dart';
+import '../../utils/store_utils.dart';
+import 'components/painel_saldo/painel_saldo_controller.dart';
 
 part 'movimentacoes_controller.g.dart';
 

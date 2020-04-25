@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
-import 'package:minhaConta/app/components/controleja_text_form_field.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
-import 'package:minhaConta/app/utils/size_utils.dart';
+
+import '../../../../components/controleja_text_form_field.dart';
+import '../../../../utils/size_utils.dart';
+import 'cadastrar_movimentacao_controller.dart';
 
 class CadastrarMovimentacaoWidget extends StatelessWidget {
   final controller = Modular.get<CadastrarMovimentacaoController>();

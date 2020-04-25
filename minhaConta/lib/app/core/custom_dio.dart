@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
+import '../repositories/usuario_repository.dart';
 
 class CustomDio {
   Dio _dio;

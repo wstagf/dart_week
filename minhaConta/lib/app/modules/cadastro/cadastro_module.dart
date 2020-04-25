@@ -1,7 +1,7 @@
-import 'package:minhaConta/app/modules/cadastro/cadastro_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/modules/cadastro/cadastro_page.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
+import '../../repositories/usuario_repository.dart';
+import 'cadastro_controller.dart';
+import 'cadastro_page.dart';
 
 class CadastroModule extends ChildModule {
   @override

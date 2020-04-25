@@ -3,11 +3,12 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:minhaConta/app/core/store_state.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
-import 'package:minhaConta/app/utils/size_utils.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
+
+import '../../../../core/store_state.dart';
+import '../../../../utils/size_utils.dart';
+import 'painel_saldo_controller.dart';
 
 class PainelSaldoWidget extends StatefulWidget {
   final double appbarHeight;

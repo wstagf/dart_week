@@ -1,6 +1,6 @@
-import 'package:minhaConta/app/core/custom_dio.dart';
-import 'package:minhaConta/app/models/movimentacao_model.dart';
-import 'package:minhaConta/app/models/movimentacao_total_model.dart';
+import '../core/custom_dio.dart';
+import '../models/movimentacao_model.dart';
+import '../models/movimentacao_total_model.dart';
 
 class MovimentacoesRepository {
   Future<List<MovimentacaoModel>> getMovimentacoes(String anoMes) {

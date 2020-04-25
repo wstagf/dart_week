@@ -1,10 +1,10 @@
-import 'package:minhaConta/app/modules/movimentacoes/components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
-import 'package:minhaConta/app/modules/movimentacoes/components/painel_saldo/painel_saldo_controller.dart';
-import 'package:minhaConta/app/modules/movimentacoes/movimentacoes_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/repositories/categorias_repository.dart';
-import 'package:minhaConta/app/repositories/movimentacoes_repository.dart';
 
+import '../../repositories/categorias_repository.dart';
+import '../../repositories/movimentacoes_repository.dart';
+import 'components/cadastrar_movimentacao/cadastrar_movimentacao_controller.dart';
+import 'components/painel_saldo/painel_saldo_controller.dart';
+import 'movimentacoes_controller.dart';
 import 'movimentacoes_page.dart';
 
 class MovimentacoesModule extends ChildModule {

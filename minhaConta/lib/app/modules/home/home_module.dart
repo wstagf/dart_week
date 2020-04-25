@@ -1,7 +1,8 @@
-import 'package:minhaConta/app/modules/home/home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:minhaConta/app/modules/home/home_page.dart';
-import 'package:minhaConta/app/repositories/usuario_repository.dart';
+
+import '../../repositories/usuario_repository.dart';
+import 'home_controller.dart';
+import 'home_page.dart';
 
 class HomeModule extends ChildModule {
   @override

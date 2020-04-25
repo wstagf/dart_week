@@ -1,5 +1,6 @@
-import 'package:minhaConta/app/core/store_state.dart';
 import 'package:mobx/mobx.dart';
+
+import '../core/store_state.dart';
 
 class StoreUtils {
   static statusCheck(ObservableFuture future) {

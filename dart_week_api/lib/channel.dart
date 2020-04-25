@@ -2,10 +2,6 @@ import 'package:dart_week_api/routers/categoria_router.dart';
 import 'package:dart_week_api/routers/usuario_router.dart';
 
 import 'dart_week_api.dart';
-import 'package:dart_week_api/model/usuario_model.dart';
-import 'package:dart_week_api/model/categoria_model.dart';
-import 'package:dart_week_api/model/movimentacao_model.dart';
-
 import 'routers/movimentacoes_router.dart';
 
 /// This type initializes an application.

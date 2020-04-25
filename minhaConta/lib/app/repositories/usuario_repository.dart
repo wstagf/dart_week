@@ -1,5 +1,6 @@
-import 'package:minhaConta/app/core/custom_dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../core/custom_dio.dart';
 
 class UsuarioRepository {
   Future<bool> isLogged() async {

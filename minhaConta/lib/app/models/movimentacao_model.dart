@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:intl/intl.dart';
-import 'package:minhaConta/app/models/categoria_model.dart';
+import 'categoria_model.dart';
 
 class MovimentacaoModel {
   int id;
