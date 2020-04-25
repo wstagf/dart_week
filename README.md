@@ -1,7 +1,5 @@
 "# dart_week" 
 
-
-
 # Framework
     * Backend: Aqueduct
     https://aqueduct.io/
@@ -123,3 +121,6 @@ aqueduct db upgrade --connect postgres://postgres:postgres@192.168.1.8:5432/dart
     * https://www.youtube.com/watch?v=Xmf63AGSc44&t=2s
     * Aula 05 - refactoring
 
+
+    * estudar estrategeia de documentacao e excluir a linha no analysis_options.yaml
+        * public_member_api_docs
