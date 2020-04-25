@@ -6,9 +6,8 @@ import 'interfaces/movimentacoes_repository_interface.dart';
 class MovimentacoesRepository implements IMovimentacoesRepository {
   Future<List<MovimentacaoModel>> getMovimentacoes(String anoMes) {
     final dio = CustomDio.whithAutentication().instance;
-    return dio.get('/movimentacoes/$anoMes').then((res) => res.data
-        .map<MovimentacaoModel>((c) => MovimentacaoModel.fromMap(c))
-        .toList());
+    return dio.get('/movimentacoes/$anoMes').then((res) =>
+        res.data.map<MovimentacaoModel>(MovimentacaoModel.fromMap).toList());
   }
 
   Future<MovimentacaoTotalModel> getTotalMes(String anoMes) {
