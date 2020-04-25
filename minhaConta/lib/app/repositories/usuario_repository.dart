@@ -5,7 +5,7 @@ import 'interfaces/usuario_repository_interface.dart';
 
 class UsuarioRepository implements IUsuarioRepository {
   Future<bool> isLogged() async {
-    final String token = await this.getToken();
+    final token = await getToken();
     return token != null;
   }
 
@@ -16,7 +16,7 @@ class UsuarioRepository implements IUsuarioRepository {
         (res) async {
       final String token = res.data['token'];
       if (token != null) {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
+        final prefs = await SharedPreferences.getInstance();
         prefs.setString('token', token);
         return true;
       }
@@ -27,15 +27,16 @@ class UsuarioRepository implements IUsuarioRepository {
 
   Future<String> getToken() async {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final prefs = await SharedPreferences.getInstance();
       return prefs.getString('token');
-    } catch (e) {
+    } on Exception catch (e) {
+      print(e);
       return null;
     }
   }
 
   Future<void> logout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     prefs.clear();
   }
 
