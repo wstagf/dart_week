@@ -1,8 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/custom_dio.dart';
+import 'interfaces/usuario_repository_interface.dart';
 
-class UsuarioRepository {
+class UsuarioRepository implements IUsuarioRepository {
   Future<bool> isLogged() async {
     final String token = await this.getToken();
     return token != null;
