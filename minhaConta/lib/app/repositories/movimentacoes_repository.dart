@@ -1,8 +1,9 @@
 import '../core/custom_dio.dart';
 import '../models/movimentacao_model.dart';
 import '../models/movimentacao_total_model.dart';
+import 'interfaces/movimentacoes_repository_interface.dart';
 
-class MovimentacoesRepository {
+class MovimentacoesRepository implements IMovimentacoesRepository {
   Future<List<MovimentacaoModel>> getMovimentacoes(String anoMes) {
     final dio = CustomDio.whithAutentication().instance;
     return dio.get('/movimentacoes/$anoMes').then((res) => res.data
