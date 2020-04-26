@@ -30,7 +30,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
       backgroundColor: ThemeUtils.primaryColor,
       body: Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          key: Key('loading'),
+        ),
       ),
     );
   }
